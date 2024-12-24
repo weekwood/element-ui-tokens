@@ -1,0 +1,121 @@
+:root {
+  /* Colors - 参考 Ant Design 的颜色系统 */
+  --color-primary-50: #fff7ed;  /* 保留我们的 orange 色系 */
+  --color-primary-100: #ffedd5;
+  --color-primary-200: #fed7aa;
+  --color-primary-300: #fdba74;
+  --color-primary-400: #fb923c;
+  --color-primary-500: #f97316;  /* 主色 */
+  --color-primary-600: #ea580c;
+  --color-primary-700: #c2410c;
+  --color-primary-800: #9a3412;
+  --color-primary-900: #7c2d12;
+  --color-primary-950: #431407;
+
+  /* Data Colors - 数据展示相关的颜色 */
+  --color-success-50: #f0fdf4;
+  --color-success-100: #dcfce7;
+  --color-success-200: #bbf7d0;
+  --color-success-300: #86efac;
+  --color-success-400: #4ade80;
+  --color-success-500: #22c55e;
+  --color-success-600: #16a34a;
+  --color-success-700: #15803d;
+  --color-success-800: #166534;
+  --color-success-900: #14532d;
+  --color-success-950: #052e16;
+
+  --color-warning-50: #fffbeb;
+  --color-warning-100: #fef3c7;
+  --color-warning-200: #fde68a;
+  --color-warning-300: #fcd34d;
+  --color-warning-400: #fbbf24;
+  --color-warning-500: #f59e0b;
+  --color-warning-600: #d97706;
+  --color-warning-700: #b45309;
+  --color-warning-800: #92400e;
+  --color-warning-900: #78350f;
+  --color-warning-950: #451a03;
+
+  --color-error-50: #fef2f2;
+  --color-error-100: #fee2e2;
+  --color-error-200: #fecaca;
+  --color-error-300: #fca5a5;
+  --color-error-400: #f87171;
+  --color-error-500: #ef4444;
+  --color-error-600: #dc2626;
+  --color-error-700: #b91c1c;
+  --color-error-800: #991b1b;
+  --color-error-900: #7f1d1d;
+  --color-error-950: #450a0a;
+
+  --color-info-50: #f9fafb;
+  --color-info-100: #f3f4f6;
+  --color-info-200: #e5e7eb;
+  --color-info-300: #d1d5db;
+  --color-info-400: #9ca3af;
+  --color-info-500: #6b7280;
+  --color-info-600: #4b5563;
+  --color-info-700: #374151;
+  --color-info-800: #1f2937;
+  --color-info-900: #111827;
+  --color-info-950: #030712;
+
+  /* Accent Colors - 用于交互状态 */
+  --color-primary-hover: var(--color-primary-400);    /* 悬浮状态 */
+  --color-primary-active: var(--color-primary-600);   /* 激活状态 */
+  --color-primary-outline: rgba(249, 115, 22, 0.2);   /* 聚焦轮廓 */
+  --color-primary-bg-hover: var(--color-primary-50);  /* 背景悬浮 */
+
+  /* Result Colors - 结果状态颜色 */
+  --color-success-result: var(--color-success-500);
+  --color-warning-result: var(--color-warning-500);
+  --color-error-result: var(--color-error-500);
+  --color-info-result: var(--color-info-500);
+
+  /* Spacing - 参考 Ant Design 的间距系统 */
+  --spacing-none: 0;
+  --spacing-xxs: 4px;     /* Ant Design 最小单位是 4px */
+  --spacing-xs: 8px;      /* 常用于小型内边距 */
+  --spacing-sm: 12px;     /* 常用于中小型内边距 */
+  --spacing-md: 16px;     /* 基础单位，最常用 */
+  --spacing-lg: 24px;     /* 常用于大型内边距 */
+  --spacing-xl: 32px;     /* 常用于区块间距 */
+  --spacing-2xl: 48px;    /* 常用于大区块间距 */
+  --spacing-3xl: 64px;    /* 用于特大区块间距 */
+
+  /* Font Sizes - 参考 Ant Design 的字号系统 */
+  --font-size-xs: 12px;      /* 辅助文案 */
+  --font-size-sm: 14px;      /* 正文（小） */
+  --font-size-base: 14px;    /* 主字号 */
+  --font-size-lg: 16px;      /* 标题 */
+  --font-size-xl: 20px;      /* 主标题 */
+  --font-size-2xl: 24px;     /* 大标题 */
+  --font-size-3xl: 30px;     /* 特大标题 */
+
+  /* Heights - 参考 Ant Design 的高度系统 */
+  --height-xs: 24px;         /* 小型元素高度 */
+  --height-sm: 28px;         /* 中小型元素高度 */
+  --height-md: 32px;         /* 基础元素高度 */
+  --height-lg: 36px;         /* 大型元素高度 */
+  --height-xl: 40px;         /* 特大元素高度 */
+
+  /* Border Radius - 参考 Ant Design 的圆角系统 */
+  --radius-none: 0;
+  --radius-sm: 4px;          /* 小圆角 */
+  --radius-base: 6px;        /* 基础圆角 */
+  --radius-lg: 8px;          /* 大圆角 */
+  --radius-xl: 16px;         /* 特大圆角 */
+  --radius-full: 9999px;     /* 全圆角 */
+
+  /* Typography - 参考 Ant Design 的字体系统 */
+  --font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+    'Noto Color Emoji';
+  --font-family-code: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+
+  /* Line Heights - 参考 Ant Design */
+  --line-height-tight: 1.2;    /* 紧凑 */
+  --line-height-base: 1.5715;  /* 基础 - Ant Design 默认行高 */
+  --line-height-loose: 2;      /* 宽松 */
+} 

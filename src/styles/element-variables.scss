@@ -1,0 +1,22 @@
+/* 改变主题色变量 */
+$--color-primary: var(--color-primary-500);
+$--color-success: #67c23a;
+$--color-warning: #e6a23c;
+$--color-danger: #f56c6c;
+$--color-info: #909399;
+
+/* 字体大小 */
+$--font-size-base: var(--font-size-base);
+$--font-size-small: var(--font-size-sm);
+$--font-size-large: var(--font-size-lg);
+
+/* 边框圆角 */
+$--border-radius-base: var(--radius-base);
+$--border-radius-small: var(--radius-sm);
+$--border-radius-round: var(--radius-full);
+
+/* 间距系统 */
+$--padding-primary: var(--spacing-4);
+
+/* 按需引入 Element UI 主题 */
+@import "~element-ui/packages/theme-chalk/src/index"; 

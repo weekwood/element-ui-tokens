@@ -1,25 +1,53 @@
 {
-  "name": "my-element-ui-project",
+  "name": "element-ui-tokens",
   "version": "0.1.0",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/weekwood/element-ui-tokens.git"
+  },
+  "bugs": {
+    "url": "https://github.com/weekwood/element-ui-tokens/issues"
+  },
+  "homepage": "https://github.com/weekwood/element-ui-tokens#readme",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "bin": {
+    "element-ui-tokens": "./cli/index.js"
   },
   "dependencies": {
     "core-js": "^3.8.3",
-    "vue": "^2.6.14"
+    "element-ui": "^2.15.14",
+    "vue": "^2.6.14",
+    "commander": "^9.0.0",
+    "fs-extra": "^10.0.0",
+    "chalk": "^4.1.2"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
     "@babel/eslint-parser": "^7.12.16",
+    "@storybook/addon-actions": "^6.5.16",
+    "@storybook/addon-essentials": "^6.3.0",
+    "@storybook/addon-interactions": "^6.5.16",
+    "@storybook/addon-links": "^6.3.0",
+    "@storybook/builder-webpack5": "^6.3.0",
+    "@storybook/manager-webpack5": "^6.3.0",
+    "@storybook/vue": "^6.3.0",
     "@vue/cli-plugin-babel": "~5.0.0",
     "@vue/cli-plugin-eslint": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
-    "eslint": "^7.32.0",
-    "eslint-plugin-vue": "^8.0.3",
-    "vue-template-compiler": "^2.6.14"
+    "css-loader": "^5.2.7",
+    "postcss-loader": "^4.0.0",
+    "sass": "^1.83.0",
+    "sass-loader": "^10.5.2",
+    "style-loader": "^2.0.0",
+    "vue-template-compiler": "^2.6.14",
+    "eslint-plugin-vue": "^8.0.0"
   },
   "eslintConfig": {
     "root": true,

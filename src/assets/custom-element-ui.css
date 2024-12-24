@@ -1,0 +1,5 @@
+/* 自定义 Element UI 样式 */
+.el-button--primary {
+  background-color: #42b983;
+  border-color: #42b983;
+} 

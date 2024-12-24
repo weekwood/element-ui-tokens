@@ -1,0 +1,857 @@
+// 全局字体设置
+body {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+}
+
+// 使用我们的设计令牌覆盖 Element UI 默认样式
+.el-button {
+  height: var(--height-md);
+  padding: 0 var(--spacing-md);
+  font-size: var(--font-size-base);
+  border-radius: var(--radius-base);
+  font-family: var(--font-family-base);
+
+  &:hover,
+  &:focus {
+    color: var(--color-primary-500);
+    border-color: var(--color-primary-400);
+    background-color: var(--color-primary-50);
+  }
+
+  &--primary {
+    background-color: var(--color-primary-500);
+    border-color: var(--color-primary-500);
+
+    &:hover,
+    &:focus {
+      color: #fff;  // 主按钮hover时文字保持白色
+      background-color: var(--color-primary-400);
+      border-color: var(--color-primary-400);
+    }
+
+    &:active {
+      background-color: var(--color-primary-600);
+      border-color: var(--color-primary-600);
+    }
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--color-primary-outline);
+  }
+
+  &--small {
+    height: var(--height-sm);
+    padding: 0 var(--spacing-sm);
+    font-size: var(--font-size-base);
+  }
+
+  &--large {
+    height: var(--height-lg);
+    padding: 0 var(--spacing-lg);
+    font-size: var(--font-size-lg);
+  }
+
+  // 文字按钮样式
+  &--text {
+    color: var(--color-primary-500);
+    padding: 0;
+    height: auto;
+    
+    &:hover,
+    &:focus {
+      color: var(--color-primary-400);
+      background-color: transparent;
+      border-color: transparent;
+    }
+    
+    &:active {
+      color: var(--color-primary-600);
+    }
+
+    &.is-disabled,
+    &.is-disabled:hover {
+      color: var(--color-text-quaternary);
+      background-color: transparent;
+      border-color: transparent;
+    }
+  }
+}
+
+.el-input {
+  &__inner {
+    height: var(--height-md);
+    padding: 0 var(--spacing-sm);
+    font-size: var(--font-size-base);
+    border-radius: var(--radius-base);
+    font-family: var(--font-family-base);
+
+    &:hover {
+      border-color: var(--color-primary-hover);
+    }
+
+    &:focus {
+      border-color: var(--color-primary-500);
+      box-shadow: 0 0 0 2px var(--color-primary-outline);
+    }
+  }
+
+  // 修复图标高度问题
+  &__icon {
+    height: var(--height-md);
+    line-height: var(--height-md);
+  }
+}
+
+// Select 选择器
+.el-select {
+  .el-input {
+    &.is-focus .el-input__inner {
+      border-color: var(--color-primary-500);
+    }
+  }
+
+  &-dropdown__item {
+    &.selected {
+      color: var(--color-primary-500);
+      background-color: var(--color-primary-bg-hover);
+    }
+    &:hover {
+      background-color: var(--color-primary-bg-hover);
+    }
+  }
+}
+
+// Checkbox 复选框
+.el-checkbox {
+  &__input.is-checked {
+    .el-checkbox__inner {
+      background-color: var(--color-primary-500);
+      border-color: var(--color-primary-500);
+    }
+    & + .el-checkbox__label {
+      color: var(--color-primary-500);
+    }
+  }
+  &:hover {
+    .el-checkbox__inner {
+      border-color: var(--color-primary-hover);
+    }
+  }
+}
+
+// Radio 单选框
+.el-radio {
+  &__input.is-checked {
+    .el-radio__inner {
+      background-color: var(--color-primary-500);
+      border-color: var(--color-primary-500);
+    }
+    & + .el-radio__label {
+      color: var(--color-primary-500);
+    }
+  }
+  &:hover {
+    .el-radio__inner {
+      border-color: var(--color-primary-hover);
+    }
+  }
+}
+
+.el-tag {
+  display: inline-flex;
+  align-items: center;
+  height: var(--height-sm);
+  padding: 0 var(--spacing-xs);
+  font-size: var(--font-size-sm);
+  border-radius: var(--radius-base);
+  line-height: 1;
+  font-family: var(--font-family-base);
+
+  &--primary {
+    background-color: var(--color-primary-50);
+    border-color: var(--color-primary-200);
+    color: var(--color-primary-700);
+  }
+
+  &--small {
+    height: var(--height-xs);
+    padding: 0 var(--spacing-xxs);
+    font-size: var(--font-size-xs);
+  }
+
+  &--large {
+    height: var(--height-md);
+    padding: 0 var(--spacing-sm);
+    font-size: var(--font-size-base);
+  }
+}
+
+// 表单标签
+.el-form-item__label {
+  font-family: var(--font-family-base);
+}
+
+// 下拉菜单
+.el-select-dropdown__item {
+  font-family: var(--font-family-base);
+}
+
+// Tabs 标签页
+.el-tabs {
+  font-family: var(--font-family-base);
+
+  &__item {
+    padding: 0 var(--spacing-md);
+    height: var(--height-md);
+    line-height: var(--height-md);
+    font-size: var(--font-size-base);
+    transition: color 0.2s;
+    
+    &.is-active {
+      color: var(--color-primary-500);
+    }
+    
+    &:hover {
+      color: var(--color-primary-hover);
+    }
+  }
+
+  &__nav-wrap::after {
+    height: 1px;
+    background-color: #f0f0f0;
+  }
+
+  &__active-bar {
+    background-color: var(--color-primary-500);
+    height: 2px;
+  }
+
+  &--card {
+    > .el-tabs__header .el-tabs__item {
+      border-radius: var(--radius-base) var(--radius-base) 0 0;
+      
+      &.is-active {
+        border-bottom-color: #fff;
+      }
+    }
+  }
+}
+
+// Table 表格
+.el-table {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  
+  th.el-table__cell {
+    background-color: #fafafa;  // Ant Design 的表头背景色
+    font-weight: 500;
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
+  
+  td.el-table__cell {
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
+
+  .el-table__row {
+    &:hover {
+      td.el-table__cell {
+        background-color: var(--color-primary-bg-hover);
+      }
+    }
+  }
+}
+
+// Pagination 分页
+.el-pagination {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+
+  .btn-prev, .btn-next {
+    background-color: transparent;
+    
+    &:hover {
+      color: var(--color-primary-hover);
+    }
+  }
+
+  .el-pager li {
+    height: var(--height-md);
+    min-width: var(--height-md);
+    line-height: var(--height-md);
+    
+    &.active {
+      background-color: var(--color-primary-500);
+      color: #fff;
+    }
+    
+    &:hover:not(.active) {
+      color: var(--color-primary-hover);
+    }
+  }
+}
+
+// Dialog 对话框
+.el-dialog {
+  font-family: var(--font-family-base);
+  border-radius: var(--radius-lg);
+
+  &__wrapper {
+    // 确保对话框遮罩层正常显示
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: auto;
+  }
+
+  &__header {
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  &__title {
+    font-size: var(--font-size-lg);
+    font-weight: 500;
+    line-height: var(--line-height-tight);
+  }
+
+  &__body {
+    padding: var(--spacing-lg);
+    font-size: var(--font-size-base);
+  }
+
+  &__footer {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-top: 1px solid #f0f0f0;
+  }
+}
+
+// Message 消息
+.el-message {
+  font-family: var(--font-family-base);
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--radius-base);
+  
+  &--success {
+    background-color: #f6ffed;  // Ant Design 的成功背景色
+    border-color: #b7eb8f;
+  }
+  
+  &--warning {
+    background-color: #fffbe6;  // Ant Design 的警告背景色
+    border-color: #ffe58f;
+  }
+  
+  &--error {
+    background-color: #fff2f0;  // Ant Design 的错误背景色
+    border-color: #ffccc7;
+  }
+}
+
+// Form 表单
+.el-form {
+  &-item {
+    margin-bottom: var(--spacing-lg);
+    
+    &__label {
+      font-size: var(--font-size-base);
+      line-height: var(--height-md);
+    }
+    
+    &__error {
+      font-size: var(--font-size-xs);
+      padding-top: var(--spacing-xxs);
+    }
+  }
+}
+
+// DatePicker 日期选择器
+.el-date-picker {
+  font-family: var(--font-family-base);
+  border-radius: var(--radius-base);
+
+  &__header {
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
+
+  .el-date-table {
+    th {
+      padding: var(--spacing-xs) var(--spacing-sm);
+      font-weight: 400;
+    }
+    
+    td {
+      &.current:not(.disabled) span {
+        background-color: var(--color-primary-500);
+        border-radius: var(--radius-sm);
+      }
+      
+      &.today span {
+        color: var(--color-primary-500);
+        font-weight: bold;
+      }
+      
+      &:hover span {
+        background-color: var(--color-primary-bg-hover);
+      }
+    }
+  }
+}
+
+// Menu 导航菜单
+.el-menu {
+  font-family: var(--font-family-base);
+  border-right: none;
+
+  // 所有菜单项统一高度
+  &-item,
+  .el-submenu__title {
+    height: var(--height-lg);
+    line-height: var(--height-lg);
+  }
+
+  // 子菜单中的菜单项
+  .el-submenu {
+    // 确保子菜单项高度一致
+    .el-menu-item {
+      height: var(--height-md);  // 子菜单项稍小一点
+      line-height: var(--height-md);
+    }
+
+    // 子菜单标题悬浮效果
+    &__title:hover {
+      color: var(--color-primary-hover);
+      background-color: var(--color-primary-bg-hover);
+    }
+  }
+
+  // 菜单项激活和悬浮状态
+  &-item {
+    &.is-active {
+      color: var(--color-primary-500);
+      background-color: var(--color-primary-bg-hover);
+    }
+    
+    &:hover {
+      color: var(--color-primary-hover);
+    }
+  }
+
+  // 水平菜单特殊处理
+  &--horizontal {
+    height: var(--height-xl);
+    
+    > .el-menu-item,
+    > .el-submenu > .el-submenu__title {
+      height: var(--height-xl);
+      line-height: var(--height-xl);
+      border-bottom: 2px solid transparent;
+    }
+
+    > .el-menu-item.is-active,
+    > .el-submenu.is-active > .el-submenu__title {
+      border-bottom-color: var(--color-primary-500);
+    }
+
+    // 水平菜单的下拉子菜单项
+    .el-submenu .el-menu-item {
+      height: var(--height-md);
+      line-height: var(--height-md);
+    }
+  }
+}
+
+// Dropdown 下拉菜单
+.el-dropdown-menu {
+  font-family: var(--font-family-base);
+  padding: var(--spacing-xs) 0;
+  border-radius: var(--radius-base);
+
+  &__item {
+    padding: var(--spacing-xs) var(--spacing-md);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+
+    &:hover {
+      background-color: var(--color-primary-bg-hover);
+      color: var(--color-primary-hover);
+    }
+
+    &.is-disabled {
+      cursor: not-allowed;
+      color: #c0c4cc;
+    }
+  }
+}
+
+// Steps 步骤条
+.el-steps {
+  font-family: var(--font-family-base);
+
+  .el-step {
+    &__head {
+      // 默认灰色
+      color: var(--color-text-quaternary);
+      border-color: var(--color-text-quaternary);
+
+      &.is-process {
+        color: var(--color-text-primary);  // 进行中是黑色
+        border-color: var(--color-text-primary);
+      }
+
+      &.is-finish {
+        color: var(--color-primary-500);  // 完成是主色
+        border-color: var(--color-primary-500);
+      }
+
+      &.is-error {
+        color: var(--color-danger-500);
+        border-color: var(--color-danger-500);
+      }
+    }
+
+    &__title {
+      font-size: var(--font-size-base);
+      line-height: var(--height-md);
+      color: var(--color-text-quaternary);  // 默认灰色
+
+      &.is-process {
+        color: var(--color-text-primary);  // 进行中是黑色
+        font-weight: 500;
+      }
+
+      &.is-finish {
+        color: var(--color-text-secondary);  // 完成是次要文字颜色
+      }
+
+      &.is-error {
+        color: var(--color-danger-500);
+      }
+    }
+
+    &__description {
+      font-size: var(--font-size-sm);
+      color: var(--color-text-quaternary);  // 默认灰色
+      
+      &.is-finish {
+        color: var(--color-text-secondary);  // 完成是次要文字颜色
+      }
+      
+      &.is-process {
+        color: var(--color-text-primary);  // 进行中是主要文字颜色
+      }
+      
+      &.is-error {
+        color: var(--color-danger-500);
+      }
+    }
+
+    // 连接线
+    &__line {
+      background-color: var(--color-gray-300);  // 默认使用 gray-300 框色
+
+      &.is-finish {
+        background-color: var(--color-primary-500);  // 完成是主色
+      }
+    }
+  }
+}
+
+// Rate 评分
+.el-rate {
+  &__icon {
+    font-size: var(--font-size-lg);
+    margin-right: var(--spacing-xxs);
+
+    &.hover {
+      color: var(--color-primary-hover);
+    }
+  }
+
+  &__decimal {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+// Upload 上传
+.el-upload {
+  &-dragger {
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-base);
+    
+    &:hover {
+      border-color: var(--color-primary-hover);
+    }
+  }
+
+  &__tip {
+    font-size: var(--font-size-xs);
+    color: #8c8c8c;  // Ant Design 的次要文字颜色
+    margin-top: var(--spacing-xs);
+  }
+}
+
+// ColorPicker 颜色选择器
+.el-color-picker {
+  &__trigger {
+    border-radius: var(--radius-base);
+    height: var(--height-md);
+    width: var(--height-md);
+  }
+
+  &__panel {
+    border-radius: var(--radius-base);
+  }
+}
+
+// Transfer 穿梭框
+.el-transfer {
+  font-family: var(--font-family-base);
+
+  &-panel {
+    border-radius: var(--radius-base);
+    
+    &__header {
+      padding: var(--spacing-xs) var(--spacing-sm);
+      background-color: #fafafa;  // Ant Design 的背景色
+    }
+
+    &__item {
+      padding: var(--spacing-xs) var(--spacing-sm);
+      
+      &:hover {
+        background-color: var(--color-primary-bg-hover);
+      }
+
+      &.el-checkbox.is-checked {
+        background-color: var(--color-primary-bg-hover);
+      }
+    }
+  }
+}
+
+// Timeline 时间线
+.el-timeline {
+  font-family: var(--font-family-base);
+  padding: var(--spacing-md) 0;
+
+  &-item {
+    &__node {
+      background-color: #fff;
+      border-color: var(--color-primary-500);
+    }
+
+    &__tail {
+      border-left: 2px solid #f0f0f0;  // Ant Design 的分割线颜色
+    }
+
+    &__content {
+      font-size: var(--font-size-base);
+      padding: var(--spacing-xs) 0;
+    }
+
+    &__timestamp {
+      font-size: var(--font-size-sm);
+      color: #8c8c8c;  // Ant Design 的次要文字颜色
+    }
+  }
+}
+
+// Calendar 日历
+.el-calendar {
+  font-family: var(--font-family-base);
+  
+  &__header {
+    padding: var(--spacing-md);
+  }
+
+  &__body {
+    padding: var(--spacing-md);
+  }
+
+  &-table {
+    td {
+      &.is-today {
+        color: var(--color-primary-500);
+      }
+
+      &.is-selected {
+        background-color: var(--color-primary-bg-hover);
+      }
+    }
+  }
+}
+
+// Image 图片
+.el-image-viewer {
+  &__wrapper {
+    background-color: rgba(0, 0, 0, 0.85);  // Ant Design 的遮罩颜色
+  }
+
+  &__btn {
+    color: #fff;
+    
+    &:hover {
+      color: var(--color-primary-hover);
+    }
+  }
+}
+
+/* Link 组样式覆盖 */
+.el-link {
+  &:hover {
+    color: var(--color-primary-500);
+  }
+  
+  &.is-underline:hover:after {
+    border-color: currentColor;
+  }
+  
+  &.el-link--default {
+    &:hover {
+      color: var(--color-primary-500);
+    }
+  }
+  
+  &.el-link--primary {
+    color: var(--color-primary-500);
+    &:hover {
+      color: var(--color-primary-400);
+    }
+  }
+  
+  &.el-link--success {
+    color: var(--color-success-500);
+    &:hover {
+      color: var(--color-success-400);
+    }
+  }
+  
+  &.el-link--warning {
+    color: var(--color-warning-500);
+    &:hover {
+      color: var(--color-warning-400);
+    }
+  }
+  
+  &.el-link--danger {
+    color: var(--color-danger-500);
+    &:hover {
+      color: var(--color-danger-400);
+    }
+  }
+  
+  &.el-link--info {
+    color: var(--color-info-500);
+    &:hover {
+      color: var(--color-info-400);
+    }
+  }
+}
+
+// Backtop 回到顶部
+.el-backtop {
+  background-color: #fff;
+  border-radius: var(--radius-base);
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
+  
+  &:hover {
+    background-color: var(--color-gray-100);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);  // hover 时加深阴影
+  }
+  
+  &:focus {
+    outline: none;
+  }
+}
+
+// Popconfirm 气确认框
+.el-popconfirm {
+  font-family: var(--font-family-base);
+  
+  &__main {
+    min-width: 177px;  // Ant Design 的最小宽度
+  }
+  
+  &__icon {
+    font-size: var(--font-size-base);  // 14px
+    margin-right: var(--spacing-xs);  // 8px
+    
+    &.el-icon-question {
+      color: var(--color-warning-500);
+    }
+  }
+  
+  &__action {
+    text-align: right;
+    
+    .el-button {
+      padding: 0 var(--spacing-xs);  // 0 8px
+      font-size: var(--font-size-sm);  // 14px
+      height: var(--height-sm);  // 28px
+      margin-left: var(--spacing-xs);  // 8px
+      
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+// Result 结果
+.el-result {
+  font-family: var(--font-family-base);
+  
+  &__icon {
+    svg {
+      width: 72px;
+      height: 72px;
+    }
+
+    &.is-success {
+      color: var(--color-success-result);
+    }
+
+    &.is-warning {
+      color: var(--color-warning-result);
+    }
+
+    &.is-error {
+      color: var(--color-error-result);
+    }
+
+    &.is-info {
+      color: var(--color-info-result);
+    }
+  }
+
+  &__title {
+    font-size: var(--font-size-xl);
+    color: var(--color-text-primary);
+    line-height: var(--line-height-tight);
+    margin-top: var(--spacing-lg);
+  }
+
+  &__subtitle {
+    font-size: var(--font-size-base);
+    color: var(--color-text-secondary);
+    line-height: var(--line-height-base);
+    margin-top: var(--spacing-xs);
+  }
+
+  &__extra {
+    margin-top: var(--spacing-lg);
+
+    .el-button + .el-button {
+      margin-left: var(--spacing-xs);
+    }
+  }
+}
+ 
