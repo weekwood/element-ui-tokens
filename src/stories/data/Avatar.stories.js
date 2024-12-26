@@ -4,7 +4,7 @@ import ElementUI from 'element-ui';
 Vue.use(ElementUI);
 
 export default {
-  title: 'Element UI/Data/Avatar',
+  title: 'Data/Avatar',
   component: 'el-avatar',
   argTypes: {
     size: {

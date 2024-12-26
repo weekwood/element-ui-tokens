@@ -4,7 +4,7 @@ import ElementUI from 'element-ui';
 Vue.use(ElementUI);
 
 export default {
-  title: 'Element UI/Others/Collapse',
+  title: 'Others/Collapse',
   component: 'el-collapse',
   argTypes: {
     accordion: { control: 'boolean' },

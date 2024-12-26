@@ -4,7 +4,7 @@ import ElementUI from 'element-ui';
 Vue.use(ElementUI);
 
 export default {
-  title: 'Element UI/Data/Card',
+  title: 'Data/Card',
   component: 'el-card',
   argTypes: {
     shadow: {

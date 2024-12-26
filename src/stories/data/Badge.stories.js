@@ -4,7 +4,7 @@ import ElementUI from 'element-ui';
 Vue.use(ElementUI);
 
 export default {
-  title: 'Element UI/Data/Badge',
+  title: 'Data/Badge',
   component: 'el-badge',
   argTypes: {
     value: { control: 'text' },

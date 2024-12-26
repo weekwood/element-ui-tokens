@@ -4,7 +4,7 @@ import ElementUI from 'element-ui';
 Vue.use(ElementUI);
 
 export default {
-  title: 'Element UI/Form/TimePicker',
+  title: 'Form/TimePicker',
   component: 'el-time-picker',
   argTypes: {
     placeholder: { control: 'text' },

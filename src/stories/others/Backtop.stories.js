@@ -4,7 +4,7 @@ import ElementUI from 'element-ui';
 Vue.use(ElementUI);
 
 export default {
-  title: 'Element UI/Others/Backtop',
+  title: 'Others/Backtop',
   component: 'el-backtop',
   argTypes: {
     visibilityHeight: { control: 'number' },

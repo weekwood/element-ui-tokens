@@ -4,7 +4,7 @@ import ElementUI from 'element-ui';
 Vue.use(ElementUI);
 
 export default {
-  title: 'Element UI/Form/Radio',
+  title: 'Form/Radio',
   component: 'el-radio',
   argTypes: {
     disabled: { control: 'boolean' },

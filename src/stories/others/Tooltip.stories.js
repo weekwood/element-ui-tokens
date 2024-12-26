@@ -4,7 +4,7 @@ import ElementUI from 'element-ui';
 Vue.use(ElementUI);
 
 export default {
-  title: 'Element UI/Others/Tooltip',
+  title: 'Others/Tooltip',
   component: 'el-tooltip',
   argTypes: {
     content: { control: 'text' },
@@ -17,6 +17,7 @@ export default {
       options: ['dark', 'light'],
     },
     disabled: { control: 'boolean' },
+    offset: { control: 'number' },
   },
 };
 
@@ -24,7 +25,10 @@ const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
     <el-tooltip v-bind="$props">
-      <el-button>hover 激活</el-button>
+      <template #content>
+        <span>{{ content || '这是提示文字' }}</span>
+      </template>
+      <el-button>鼠标悬停</el-button>
     </el-tooltip>
   `,
 });

@@ -4,7 +4,7 @@ import ElementUI from 'element-ui';
 Vue.use(ElementUI);
 
 export default {
-  title: 'Element UI/Data/Table',
+  title: 'Data/Table',
   component: 'el-table',
   argTypes: {
     border: { control: 'boolean' },
@@ -115,7 +115,7 @@ const SelectionTemplate = (args, { argTypes }) => ({
       </el-table-column>
       <el-table-column
         prop="address"
-        label="地址">
+        label="地���">
       </el-table-column>
     </el-table>
   `,

@@ -4,7 +4,7 @@ import ElementUI from 'element-ui';
 Vue.use(ElementUI);
 
 export default {
-  title: 'Element UI/Data/Progress',
+  title: 'Data/Progress',
   component: 'el-progress',
   argTypes: {
     percentage: { control: 'number' },
@@ -20,6 +20,7 @@ export default {
     textInside: { control: 'boolean' },
     width: { control: 'number' },
     showText: { control: 'boolean' },
+    color: { control: 'color' },
   },
 };
 
@@ -43,4 +44,10 @@ export const Dashboard = Template.bind({});
 Dashboard.args = {
   type: 'dashboard',
   percentage: 80,
+};
+
+export const WithStatus = Template.bind({});
+WithStatus.args = {
+  percentage: 100,
+  status: 'success',
 }; 

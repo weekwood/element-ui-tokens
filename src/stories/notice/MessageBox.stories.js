@@ -4,7 +4,7 @@ import ElementUI from 'element-ui';
 Vue.use(ElementUI);
 
 export default {
-  title: 'Element UI/Feedback/MessageBox',
+  title: 'Notice/MessageBox',
   argTypes: {
     type: {
       control: { type: 'select' },

@@ -4,7 +4,7 @@ import ElementUI from 'element-ui';
 Vue.use(ElementUI);
 
 export default {
-  title: 'Element UI/Form/Upload',
+  title: 'Form/Upload',
   component: 'el-upload',
   argTypes: {
     action: { control: 'text' },

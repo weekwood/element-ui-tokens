@@ -4,7 +4,7 @@ import ElementUI from 'element-ui';
 Vue.use(ElementUI);
 
 export default {
-  title: 'Element UI/Data/Calendar',
+  title: 'Others/Calendar',
   component: 'el-calendar',
   argTypes: {
     range: { control: 'array' },

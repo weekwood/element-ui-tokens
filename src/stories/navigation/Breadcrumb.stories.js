@@ -4,7 +4,7 @@ import ElementUI from 'element-ui';
 Vue.use(ElementUI);
 
 export default {
-  title: 'Element UI/Navigation/Breadcrumb',
+  title: 'Navigation/Breadcrumb',
   component: 'el-breadcrumb',
   argTypes: {
     separator: { control: 'text' },

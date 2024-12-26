@@ -4,7 +4,7 @@ import ElementUI from 'element-ui';
 Vue.use(ElementUI);
 
 export default {
-  title: 'Element UI/Navigation/Dropdown',
+  title: 'Navigation/Dropdown',
   component: 'el-dropdown',
   argTypes: {
     trigger: {

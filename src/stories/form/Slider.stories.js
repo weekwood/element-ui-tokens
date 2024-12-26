@@ -4,7 +4,7 @@ import ElementUI from 'element-ui';
 Vue.use(ElementUI);
 
 export default {
-  title: 'Element UI/Form/Slider',
+  title: 'Form/Slider',
   component: 'el-slider',
   argTypes: {
     min: { control: 'number' },

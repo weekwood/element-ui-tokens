@@ -4,7 +4,7 @@ import ElementUI from 'element-ui';
 Vue.use(ElementUI);
 
 export default {
-  title: 'Element UI/Navigation/Tabs',
+  title: 'Navigation/Tabs',
   component: 'el-tabs',
   argTypes: {
     type: {

@@ -4,7 +4,7 @@ import ElementUI from 'element-ui';
 Vue.use(ElementUI);
 
 export default {
-  title: 'Element UI/Basic/Container',
+  title: 'Basic/Container',
   component: 'el-container',
 };
 

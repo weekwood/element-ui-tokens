@@ -4,7 +4,7 @@ import ElementUI from 'element-ui';
 Vue.use(ElementUI);
 
 export default {
-  title: 'Element UI/Form/Input',
+  title: 'Form/Input',
   component: 'el-input',
   argTypes: {
     type: {

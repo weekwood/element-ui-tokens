@@ -4,7 +4,7 @@ import ElementUI from 'element-ui';
 Vue.use(ElementUI);
 
 export default {
-  title: 'Element UI/Feedback/Message',
+  title: 'Notice/Message',
   component: 'el-message',
   argTypes: {
     message: { control: 'text' },

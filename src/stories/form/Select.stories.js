@@ -4,7 +4,7 @@ import ElementUI from 'element-ui';
 Vue.use(ElementUI);
 
 export default {
-  title: 'Element UI/Form/Select',
+  title: 'Form/Select',
   component: 'el-select',
   argTypes: {
     size: {

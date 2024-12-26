@@ -4,7 +4,7 @@ import ElementUI from 'element-ui';
 Vue.use(ElementUI);
 
 export default {
-  title: 'Element UI/Feedback/Result',
+  title: 'Data/Result',
   component: 'el-result',
   argTypes: {
     title: { control: 'text' },

@@ -4,7 +4,7 @@ import ElementUI from 'element-ui';
 Vue.use(ElementUI);
 
 export default {
-  title: 'Element UI/Navigation/Menu',
+  title: 'Navigation/Menu',
   component: 'el-menu',
   argTypes: {
     mode: {

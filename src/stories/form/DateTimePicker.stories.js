@@ -4,45 +4,40 @@ import ElementUI from 'element-ui';
 Vue.use(ElementUI);
 
 export default {
-  title: 'Form/DatePicker',
+  title: 'Form/DateTimePicker',
   component: 'el-date-picker',
   argTypes: {
     type: {
       control: { type: 'select' },
-      options: ['year', 'month', 'date', 'dates', 'week', 'datetime', 'datetimerange', 'daterange', 'monthrange'],
+      options: ['datetime', 'datetimerange'],
     },
     placeholder: { control: 'text' },
     format: { control: 'text' },
+    valueFormat: { control: 'text' },
     readonly: { control: 'boolean' },
     disabled: { control: 'boolean' },
-    clearable: { control: 'boolean' },
-    size: {
-      control: { type: 'select' },
-      options: ['large', 'medium', 'small', 'mini'],
-    },
   },
 };
 
 const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
+  template: '<el-date-picker v-model="value" v-bind="$props" />',
   data() {
     return {
       value: '',
     };
   },
-  template: '<el-date-picker v-model="value" v-bind="$props" />',
 });
 
 export const Default = Template.bind({});
 Default.args = {
-  type: 'date',
-  placeholder: '选择日期',
+  type: 'datetime',
+  placeholder: '选择日期时间',
 };
 
-export const DateRange = Template.bind({});
-DateRange.args = {
-  type: 'daterange',
-  rangeSeparator: '至',
+export const Range = Template.bind({});
+Range.args = {
+  type: 'datetimerange',
   startPlaceholder: '开始日期',
   endPlaceholder: '结束日期',
 }; 

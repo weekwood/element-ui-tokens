@@ -4,7 +4,7 @@ import ElementUI from 'element-ui';
 Vue.use(ElementUI);
 
 export default {
-  title: 'Element UI/Form/Form',
+  title: 'Form/Form',
   component: 'el-form',
   argTypes: {
     labelPosition: {

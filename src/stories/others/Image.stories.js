@@ -4,7 +4,7 @@ import ElementUI from 'element-ui';
 Vue.use(ElementUI);
 
 export default {
-  title: 'Element UI/Others/Image',
+  title: 'Others/Image',
   component: 'el-image',
   argTypes: {
     fit: {

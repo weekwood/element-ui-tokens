@@ -4,7 +4,7 @@ import ElementUI from 'element-ui';
 Vue.use(ElementUI);
 
 export default {
-  title: 'Element UI/Navigation/PageHeader',
+  title: 'Navigation/PageHeader',
   component: 'el-page-header',
   argTypes: {
     title: { control: 'text' },

@@ -4,7 +4,7 @@ import ElementUI from 'element-ui';
 Vue.use(ElementUI);
 
 export default {
-  title: 'Element UI/Data/Tree',
+  title: 'Data/Tree',
   component: 'el-tree',
   argTypes: {
     showCheckbox: { control: 'boolean' },

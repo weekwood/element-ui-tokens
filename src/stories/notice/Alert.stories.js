@@ -4,7 +4,7 @@ import ElementUI from 'element-ui';
 Vue.use(ElementUI);
 
 export default {
-  title: 'Element UI/Basic/Alert',
+  title: 'Notice/Alert',
   component: 'el-alert',
   argTypes: {
     title: { control: 'text' },

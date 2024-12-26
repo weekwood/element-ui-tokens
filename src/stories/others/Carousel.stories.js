@@ -4,7 +4,7 @@ import ElementUI from 'element-ui';
 Vue.use(ElementUI);
 
 export default {
-  title: 'Element UI/Others/Carousel',
+  title: 'Others/Carousel',
   component: 'el-carousel',
   argTypes: {
     height: { control: 'text' },

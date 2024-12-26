@@ -4,7 +4,7 @@ import ElementUI from 'element-ui';
 Vue.use(ElementUI);
 
 export default {
-  title: 'Element UI/Data/Steps',
+  title: 'Data/Steps',
   component: 'el-steps',
   argTypes: {
     active: { control: 'number' },

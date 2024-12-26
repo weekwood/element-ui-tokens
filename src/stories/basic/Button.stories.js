@@ -4,7 +4,7 @@ import ElementUI from 'element-ui';
 Vue.use(ElementUI);
 
 export default {
-  title: 'Element UI/Basic/Button',
+  title: 'Basic/Button',
   component: 'el-button',
   argTypes: {
     type: {

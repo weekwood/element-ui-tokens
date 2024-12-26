@@ -4,12 +4,16 @@ import ElementUI from 'element-ui';
 Vue.use(ElementUI);
 
 export default {
-  title: 'Element UI/Data/Transfer',
+  title: 'Form/Transfer',
   component: 'el-transfer',
   argTypes: {
     filterable: { control: 'boolean' },
     titles: { control: 'array' },
     buttonTexts: { control: 'array' },
+    targetOrder: {
+      control: { type: 'select' },
+      options: ['original', 'push', 'unshift'],
+    },
   },
 };
 
@@ -22,7 +26,7 @@ const Template = (args, { argTypes }) => ({
         data.push({
           key: i,
           label: `备选项 ${i}`,
-          disabled: i % 4 === 0,
+          disabled: i % 4 === 0
         });
       }
       return data;
@@ -36,8 +40,8 @@ const Template = (args, { argTypes }) => ({
     <el-transfer
       v-model="value"
       :data="data"
-      v-bind="$props">
-    </el-transfer>
+      v-bind="$props"
+    />
   `,
 });
 
@@ -47,4 +51,10 @@ Default.args = {};
 export const Filterable = Template.bind({});
 Filterable.args = {
   filterable: true,
+};
+
+export const CustomTitles = Template.bind({});
+CustomTitles.args = {
+  titles: ['Source', 'Target'],
+  buttonTexts: ['到左边', '到右边'],
 }; 

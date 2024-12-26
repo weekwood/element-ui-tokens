@@ -4,7 +4,7 @@ import ElementUI from 'element-ui';
 Vue.use(ElementUI);
 
 export default {
-  title: 'Element UI/Form/InputNumber',
+  title: 'Form/InputNumber',
   component: 'el-input-number',
   argTypes: {
     min: { control: 'number' },

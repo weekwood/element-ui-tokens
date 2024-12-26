@@ -4,7 +4,7 @@ import ElementUI from 'element-ui';
 Vue.use(ElementUI);
 
 export default {
-  title: 'Element UI/Data/Descriptions',
+  title: 'Data/Descriptions',
   component: 'el-descriptions',
   argTypes: {
     border: { control: 'boolean' },

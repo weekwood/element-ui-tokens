@@ -4,7 +4,7 @@ import ElementUI from 'element-ui';
 Vue.use(ElementUI);
 
 export default {
-  title: 'Element UI/Feedback/Drawer',
+  title: 'Others/Drawer',
   component: 'el-drawer',
   argTypes: {
     title: { control: 'text' },

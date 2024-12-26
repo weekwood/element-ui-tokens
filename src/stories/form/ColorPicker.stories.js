@@ -4,7 +4,7 @@ import ElementUI from 'element-ui';
 Vue.use(ElementUI);
 
 export default {
-  title: 'Element UI/Form/ColorPicker',
+  title: 'Form/ColorPicker',
   component: 'el-color-picker',
   argTypes: {
     showAlpha: { control: 'boolean' },

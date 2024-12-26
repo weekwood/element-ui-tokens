@@ -4,7 +4,7 @@ import ElementUI from 'element-ui';
 Vue.use(ElementUI);
 
 export default {
-  title: 'Element UI/Basic/Layout',
+  title: 'Basic/Layout',
   component: 'el-row',
 };
 
