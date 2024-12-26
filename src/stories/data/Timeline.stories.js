@@ -4,7 +4,7 @@ import ElementUI from 'element-ui';
 Vue.use(ElementUI);
 
 export default {
-  title: 'Data/Timeline',
+  title: 'Others/Timeline',
   component: 'el-timeline',
   argTypes: {
     reverse: { control: 'boolean' },

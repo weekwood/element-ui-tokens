@@ -294,28 +294,106 @@ body {
 // Pagination 分页
 .el-pagination {
   font-family: var(--font-family-base);
-  font-size: var(--font-size-base);
-
-  .btn-prev, .btn-next {
-    background-color: transparent;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xxs);
+  
+  button {
+    min-width: var(--height-md);
+    height: var(--height-md);
+    border-radius: var(--radius-base);
+    margin: 0;
+    padding: 0;
     
     &:hover {
-      color: var(--color-primary-hover);
+      color: var(--color-primary-500);
+    }
+    
+    &.disabled {
+      background-color: var(--color-info-100);
+      color: var(--color-info-300);
+      cursor: not-allowed;
+
+      &:hover {
+        color: var(--color-info-300);
+        background-color: var(--color-info-100);
+      }
     }
   }
 
-  .el-pager li {
-    height: var(--height-md);
-    min-width: var(--height-md);
-    line-height: var(--height-md);
-    
-    &.active {
-      background-color: var(--color-primary-500);
-      color: #fff;
+  .el-pager {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xxs);
+    margin: 0;
+    padding: 0;
+
+    li {
+      min-width: var(--height-md);
+      height: var(--height-md);
+      line-height: var(--height-md);
+      border-radius: var(--radius-base);
+      font-weight: normal;
+      margin: 0;
+      padding: 0;
+      
+      &:hover {
+        color: var(--color-primary-500);
+      }
+      
+      &.active {
+        color: var(--color-primary-500);
+        font-weight: bold;
+        background-color: transparent;
+      }
     }
+  }
+
+  .el-pagination__total,
+  .el-pagination__jump {
+    margin: 0;
+    line-height: var(--height-md);
+  }
+
+  .el-pagination__sizes {
+    margin: 0;
     
-    &:hover:not(.active) {
-      color: var(--color-primary-hover);
+    .el-input {
+      margin: 0 var(--spacing-xxs);
+    }
+  }
+
+  &.is-background {
+    .el-pager li,
+    button {
+      background-color: #fff !important;
+      
+      &:not(.disabled):hover {
+        color: var(--color-primary-500) !important;
+        background-color: var(--color-primary-bg-hover) !important;
+      }
+      
+      &.active {
+        background-color: var(--color-primary-500) !important;
+        color: #fff !important;
+      }
+      
+      &.disabled {
+        background-color: var(--color-info-100) !important;
+        color: var(--color-info-300) !important;
+        
+        &:hover {
+          background-color: var(--color-info-100) !important;
+          color: var(--color-info-300) !important;
+        }
+      }
+    }
+
+    .el-pagination__total,
+    .el-pagination__jump,
+    .el-pagination__sizes {
+      line-height: var(--height-md);
+      height: var(--height-md);
     }
   }
 }
@@ -446,7 +524,7 @@ body {
 
   // 子菜单中的菜单项
   .el-submenu {
-    // 确保子菜单项高度一致
+    // 确保子菜单项度一致
     .el-menu-item {
       height: var(--height-md);  // 子菜单项稍小一点
       line-height: var(--height-md);
@@ -674,22 +752,45 @@ body {
 
   &-item {
     &__node {
-      background-color: #fff;
-      border-color: var(--color-primary-500);
+      background-color: var(--color-info-200);
+      border-color: var(--color-info-200);
+      
+      &--primary {
+        background-color: var(--color-primary-500);
+        border-color: var(--color-primary-500);
+      }
+      
+      &--success {
+        background-color: var(--color-success-500);
+        border-color: var(--color-success-500);
+      }
+      
+      &--warning {
+        background-color: var(--color-warning-500);
+        border-color: var(--color-warning-500);
+      }
+      
+      &--danger {
+        background-color: var(--color-error-500);
+        border-color: var(--color-error-500);
+      }
+      
+      &--info {
+        background-color: var(--color-info-500);
+        border-color: var(--color-info-500);
+      }
     }
 
     &__tail {
-      border-left: 2px solid #f0f0f0;  // Ant Design 的分割线颜色
+      border-left-color: var(--color-info-200);
     }
 
     &__content {
-      font-size: var(--font-size-base);
-      padding: var(--spacing-xs) 0;
+      color: var(--color-info-900);
     }
 
     &__timestamp {
-      font-size: var(--font-size-sm);
-      color: #8c8c8c;  // Ant Design 的次要文字颜色
+      color: var(--color-info-500);
     }
   }
 }
@@ -1062,5 +1163,252 @@ body {
 .el-table__fixed,
 .el-table__fixed-right {
   z-index: var(--z-index-sticky) !important;
+}
+
+.el-date-editor {
+  &.el-input__inner {
+    .el-range-separator {
+      display: inline-flex;
+      align-items: center;
+      padding: 0;
+      line-height: 1;
+    }
+  }
+}
+
+// Cascader 级联选择器
+.el-cascader {
+  &:hover {
+    .el-input__inner {
+      border-color: var(--color-primary-hover);
+    }
+  }
+
+  .el-input {
+    .el-input__inner:focus,
+    &.is-focus .el-input__inner {
+      border-color: var(--color-primary-500);
+      outline: none;
+      box-shadow: 0 0 0 2px var(--color-primary-outline);
+    }
+  }
+}
+
+.el-cascader-panel {
+  .el-cascader-node {
+    &:not(.is-disabled) {
+      &:hover {
+        background-color: var(--color-primary-bg-hover);
+      }
+      
+      &.in-active-path,
+      &.is-active,
+      &.is-selectable.in-checked-path {
+        color: var(--color-primary-500);
+        font-weight: bold;
+      }
+    }
+
+    &.in-active-path,
+    &.is-active,
+    &.is-selectable.in-checked-path {
+      background-color: var(--color-primary-bg-hover);
+    }
+  }
+}
+
+.el-cascader__dropdown {
+  &.el-popper[x-placement^="bottom"] {
+    margin-top: var(--spacing-xxs);
+  }
+  
+  &.el-popper[x-placement^="top"] {
+    margin-bottom: var(--spacing-xxs);
+  }
+}
+
+// InputNumber 数字输入框
+.el-input-number {
+  .el-input-number__decrease,
+  .el-input-number__increase {
+    border: none;
+    background: transparent;
+    color: var(--color-info-500);
+    transition: all 0.2s;
+    
+    &:hover {
+      color: var(--color-primary-500);
+      background-color: transparent;
+    }
+    
+    &.is-disabled {
+      color: var(--color-info-300);
+      background-color: transparent;
+      cursor: not-allowed;
+    }
+  }
+
+  // 移除边框
+  .el-input-number__decrease {
+    border-right: none;
+  }
+  
+  .el-input-number__increase {
+    border-left: none;
+  }
+
+  // 调整输入框内边距，为按钮留出空间
+  .el-input__inner {
+    padding-left: var(--spacing-xl);
+    padding-right: var(--spacing-xl);
+    text-align: center;
+  }
+
+  &:hover {
+    .el-input__inner {
+      border-color: var(--color-primary-hover);
+    }
+  }
+
+  .el-input.is-focus .el-input__inner {
+    border-color: var(--color-primary-500);
+    box-shadow: 0 0 0 2px var(--color-primary-outline);
+  }
+
+  // 右侧控按钮的特殊样式
+  &--controls-right {
+    .el-input-number__decrease,
+    .el-input-number__increase {
+      height: 50%;
+      line-height: 1;
+      border: none;
+      background: transparent;
+      
+      &:hover {
+        color: var(--color-primary-500);
+        background-color: transparent;
+      }
+    }
+
+    .el-input__inner {
+      padding-right: var(--spacing-xl);
+      padding-left: var(--spacing-sm);
+      text-align: left;
+    }
+  }
+
+  // 不同尺寸的样式调整
+  &--mini {
+    .el-input-number__decrease,
+    .el-input-number__increase {
+      width: var(--spacing-lg);
+    }
+    
+    &.el-input-number--controls-right {
+      .el-input-number__decrease,
+      .el-input-number__increase {
+        width: var(--spacing-md);
+      }
+    }
+  }
+
+  &--small {
+    .el-input-number__decrease,
+    .el-input-number__increase {
+      width: var(--spacing-xl);
+    }
+    
+    &.el-input-number--controls-right {
+      .el-input-number__decrease,
+      .el-input-number__increase {
+        width: var(--spacing-lg);
+      }
+    }
+  }
+
+  &--large {
+    .el-input-number__decrease,
+    .el-input-number__increase {
+      width: var(--spacing-2xl);
+    }
+    
+    &.el-input-number--controls-right {
+      .el-input-number__decrease,
+      .el-input-number__increase {
+        width: var(--spacing-xl);
+      }
+    }
+  }
+}
+
+// Breadcrumb 面包屑
+.el-breadcrumb {
+  &__separator {
+    font-weight: normal;  // 或者使用具体数值
+    color: var(--color-info-400);
+  }
+
+  &__inner {
+    color: var(--color-info-500);
+    
+    &.is-link {
+      &:hover {
+        color: var(--color-primary-500);
+      }
+    }
+  }
+}
+
+// Statistic 统计数值
+.el-statistic {
+  font-family: var(--font-family-base);
+
+  &__head {
+    color: var(--color-info-600);
+    font-size: var(--font-size-base);
+    margin-bottom: var(--spacing-xs);
+  }
+
+  &__content {
+    color: var(--color-info-900);
+    
+    &-value {
+      font-size: var(--font-size-2xl);
+      font-weight: 600;
+    }
+    
+    &-prefix,
+    &-suffix {
+      font-size: var(--font-size-lg);
+      color: var(--color-info-600);
+    }
+  }
+
+  // 不同尺寸
+  &--large {
+    .el-statistic__content-value {
+      font-size: var(--font-size-3xl);
+    }
+  }
+
+  &--small {
+    .el-statistic__content-value {
+      font-size: var(--font-size-xl);
+    }
+  }
+}
+
+// 添加或修改 v-modal 相关样式
+.v-modal {
+  z-index: var(--z-index-overlay) !important;  // 覆盖默认的 2000
+}
+
+// 确保其他相关组件的 z-index 正确
+.el-dialog__wrapper {
+  z-index: var(--z-index-modal) !important;  // 应该比 overlay 高
+}
+
+.el-drawer__wrapper {
+  z-index: var(--z-index-modal) !important;  // 应该比 overlay 高
 }
  

@@ -21,7 +21,7 @@ const Template = (args, { argTypes }) => ({
     <el-card v-bind="$props">
       <div slot="header">
         <span>卡片名称</span>
-        <el-button style="float: right; padding: 3px 0" type="text">操作按钮</el-button>
+        <el-button style="float: right;" type="text">操作按钮</el-button>
       </div>
       <div v-for="o in 4" :key="o">
         {{'列表内容 ' + o }}

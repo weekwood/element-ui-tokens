@@ -42,7 +42,7 @@ Default.args = {
 export const DateRange = Template.bind({});
 DateRange.args = {
   type: 'daterange',
-  rangeSeparator: '至',
+  rangeSeparator: '-',
   startPlaceholder: '开始日期',
   endPlaceholder: '结束日期',
 }; 
