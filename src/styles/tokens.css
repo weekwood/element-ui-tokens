@@ -118,4 +118,18 @@
   --line-height-tight: 1.2;    /* 紧凑 */
   --line-height-base: 1.5715;  /* 基础 - Ant Design 默认行高 */
   --line-height-loose: 2;      /* 宽松 */
+
+  /* Z-index 系统 */
+  --z-index-deep: -999999;    /* 用于将元素置于所有内容之后 */
+  --z-index-default: 1;       /* 组件和元素的默认 z-index */
+  --z-index-masked: 100;      /* 被遮罩的界面元素 */
+  --z-index-mask: 200;        /* 遮罩层 */
+  --z-index-sticky: 300;      /* 粘性定位元素 */
+  --z-index-nav: 400;         /* 导航 */
+  --z-index-header: 500;      /* 顶部栏 */
+  --z-index-overlay: 600;     /* 模态框和弹出层的遮罩 */
+  --z-index-spinner: 700;     /* 加载动画,显示在遮罩之上 */
+  --z-index-popout: 800;      /* 弹出框,显示在所有其他元素之上 */
+  --z-index-toast: 900;       /* 消息提示 */
+  --z-index-modal: 1000;      /* 模态框,显示在遮罩和其他元素之上,但允许弹出框可见 */
 } 
