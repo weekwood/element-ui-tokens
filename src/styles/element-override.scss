@@ -1,13 +1,50 @@
-// 全局字体设置
-body {
-  font-family: var(--font-family-base);
-  font-size: var(--font-size-base);
-  line-height: var(--line-height-base);
-}
-
 // Z-index 管理
 .v-modal {
   z-index: var(--z-index-overlay) !important;
+}
+
+.el-popper,
+.el-select-dropdown,
+.el-tooltip__popper,
+.el-dropdown-menu,
+.el-popover,
+.el-picker-panel,
+.el-cascader__dropdown {
+  z-index: var(--z-index-popout) !important;
+}
+
+// 固定元素
+.el-header {
+  z-index: var(--z-index-header) !important;
+}
+
+// 导航相关
+.el-aside,
+.el-menu {
+  z-index: var(--z-index-nav) !important;
+}
+
+// 消息通知
+.el-message,
+.el-notification {
+  z-index: var(--z-index-toast) !important;
+}
+
+// 弹出层
+.el-drawer__wrapper,
+.el-message-box__wrapper {
+  z-index: var(--z-index-modal) !important;
+}
+
+// 加载遮罩
+.el-loading-mask {
+  z-index: var(--z-index-spinner) !important;
+}
+
+// 表格固定列
+.el-table__fixed,
+.el-table__fixed-right {
+  z-index: var(--z-index-sticky) !important;
 }
 
 // 使用我们的设计令牌覆盖 Element UI 默认样式
@@ -471,7 +508,6 @@ body {
   font-family: var(--font-family-base);
   padding: var(--spacing-xs) var(--spacing-md);
   border-radius: var(--radius-base);
-  z-index: var(--z-index-toast);
   
   &--success {
     background-color: #f6ffed;  // Ant Design 的成功背景色
@@ -543,7 +579,6 @@ body {
 .el-menu {
   font-family: var(--font-family-base);
   border-right: none;
-  z-index: var(--z-index-nav);
 
   // 所有菜单项统一高度
   &-item,
@@ -608,7 +643,6 @@ body {
   font-family: var(--font-family-base);
   padding: var(--spacing-xs) 0;
   border-radius: var(--radius-base);
-  z-index: var(--z-index-popout);
 
   &__item {
     padding: var(--spacing-xs) var(--spacing-md);
@@ -1017,178 +1051,6 @@ body {
   }
 }
 
-.el-loading-mask {
-  z-index: var(--z-index-spinner);
-}
-
-.el-select-dropdown {
-  z-index: var(--z-index-popout);
-}
-
-.el-tooltip__popper {
-  z-index: var(--z-index-popout);
-}
-
-.el-notification {
-  z-index: var(--z-index-toast);
-}
-
-.el-drawer__wrapper {
-  z-index: var(--z-index-modal);
-}
-
-.el-header {
-  z-index: var(--z-index-header);
-}
-
-/* Popover 相关组件 */
-.el-popover {
-  z-index: var(--z-index-popout);
-}
-
-.el-select-dropdown {
-  z-index: var(--z-index-popout);
-}
-
-.el-tooltip__popper {
-  z-index: var(--z-index-popout);
-}
-
-/* 消息和通知 */
-.el-message {
-  z-index: var(--z-index-toast);
-}
-
-.el-notification {
-  z-index: var(--z-index-toast);
-}
-
-/* 加载和顶层元素 */
-.el-loading-mask {
-  z-index: var(--z-index-spinner);
-}
-
-/* 下拉菜单和选择器 */
-.el-dropdown-menu {
-  z-index: var(--z-index-popout);
-}
-
-.el-cascader__dropdown {
-  z-index: var(--z-index-popout);
-}
-
-/* 固定元素 */
-.el-header {
-  z-index: var(--z-index-header);
-}
-
-.el-aside {
-  z-index: var(--z-index-nav);
-}
-
-/* 粘性定位 */
-.el-table__fixed,
-.el-table__fixed-right {
-  z-index: var(--z-index-sticky);
-}
-
-/* 覆盖 vue-popper 的默认行为 */
-.el-popper {
-  z-index: var(--z-index-popout) !important; /* 使用 !important 来确保覆盖 */
-}
-
-/* 特定的 popper 类型可能需要不同的 z-index */
-.el-select-dropdown.el-popper {
-  z-index: var(--z-index-popout) !important;
-}
-
-.el-tooltip__popper.el-popper {
-  z-index: var(--z-index-popout) !important;
-}
-
-.el-dropdown-menu.el-popper {
-  z-index: var(--z-index-popout) !important;
-}
-
-.el-popover.el-popper {
-  z-index: var(--z-index-popout) !important;
-}
-
-/* 日期选择器的 popper */
-.el-picker-panel.el-popper {
-  z-index: var(--z-index-popout) !important;
-}
-
-/* 级联选择器的 popper */
-.el-cascader__dropdown.el-popper {
-  z-index: var(--z-index-popout) !important;
-}
-
-/* Z-index 覆盖 */
-.el-drawer__wrapper {
-  z-index: var(--z-index-modal) !important;
-}
-
-.el-header {
-  z-index: var(--z-index-header) !important;
-}
-
-.el-popover {
-  z-index: var(--z-index-popout) !important;
-}
-
-.el-select-dropdown {
-  z-index: var(--z-index-popout) !important;
-}
-
-.el-tooltip__popper {
-  z-index: var(--z-index-popout) !important;
-}
-
-.el-message {
-  z-index: var(--z-index-toast) !important;
-}
-
-.el-notification {
-  z-index: var(--z-index-toast) !important;
-}
-
-.el-loading-mask {
-  z-index: var(--z-index-spinner) !important;
-}
-
-.el-dropdown-menu {
-  z-index: var(--z-index-popout) !important;
-}
-
-.el-cascader__dropdown {
-  z-index: var(--z-index-popout) !important;
-}
-
-.el-header {
-  z-index: var(--z-index-header) !important;
-}
-
-.el-aside {
-  z-index: var(--z-index-nav) !important;
-}
-
-.el-table__fixed,
-.el-table__fixed-right {
-  z-index: var(--z-index-sticky) !important;
-}
-
-.el-date-editor {
-  &.el-input__inner {
-    .el-range-separator {
-      display: inline-flex;
-      align-items: center;
-      padding: 0;
-      line-height: 1;
-    }
-  }
-}
-
 // Cascader 级联选择器
 .el-cascader {
   &:hover {
@@ -1435,7 +1297,6 @@ body {
     bottom: 0;
     left: 0;
     overflow: auto;
-    z-index: var(--z-index-modal) !important;
   }
 }
 
@@ -1455,5 +1316,26 @@ body {
 
 .el-tag + .el-tag {
   margin-left: var(--spacing-xs);
+}
+
+// Loading 加载
+.el-loading {
+  &-spinner {
+    .el-loading-text {
+      color: var(--color-primary-500);
+    }
+
+    .circular .path {
+      stroke: var(--color-primary-500);
+    }
+
+    .el-icon-loading {
+      color: var(--color-primary-500);
+    }
+  }
+
+  &-mask {
+    background-color: rgb(255 255 255 / 90%);
+  }
 }
  
