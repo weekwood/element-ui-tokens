@@ -430,28 +430,23 @@ body {
   }
 }
 
-// Dialog 对话框
-.el-dialog {
+// MessageBox 消息弹框
+.el-message-box {
   font-family: var(--font-family-base);
   border-radius: var(--radius-lg);
-
-  &__wrapper {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    overflow: auto;
-    z-index: var(--z-index-modal) !important;
-  }
-
-  &__overlay {
-    z-index: var(--z-index-overlay) !important;
-  }
 
   &__header {
     padding: var(--spacing-md) var(--spacing-lg);
     border-bottom: 1px solid #f0f0f0;
+  }
+
+  &__headerbtn {
+    &:focus,
+    &:hover {
+      .el-message-box__close {
+        color: var(--color-primary-500);
+      }
+    }
   }
 
   &__title {
@@ -460,12 +455,12 @@ body {
     line-height: var(--line-height-tight);
   }
 
-  &__body {
+  &__content {
     padding: var(--spacing-lg);
     font-size: var(--font-size-base);
   }
 
-  &__footer {
+  &__btns {
     padding: var(--spacing-sm) var(--spacing-lg);
     border-top: 1px solid #f0f0f0;
   }
@@ -1057,15 +1052,6 @@ body {
 
 .el-tooltip__popper {
   z-index: var(--z-index-popout);
-}
-
-/* 遮罩和模态框 */
-.el-dialog__wrapper {
-  z-index: var(--z-index-modal);
-}
-
-.el-dialog__overlay {
-  z-index: var(--z-index-overlay);
 }
 
 /* 消息和通知 */
