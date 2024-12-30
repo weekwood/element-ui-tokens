@@ -242,6 +242,12 @@ body {
   font-family: var(--font-family-base);
 }
 
+// 表单内容区域
+.el-form-item__content {
+  line-height: var(--height-md);
+  min-height: var(--height-md);
+}
+
 // 下拉菜单
 .el-select-dropdown__item {
   font-family: var(--font-family-base);
