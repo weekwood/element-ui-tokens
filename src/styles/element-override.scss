@@ -5,6 +5,11 @@ body {
   line-height: var(--line-height-base);
 }
 
+// Z-index 管理
+.v-modal {
+  z-index: var(--z-index-overlay) !important;
+}
+
 // 使用我们的设计令牌覆盖 Element UI 默认样式
 .el-button {
   height: var(--height-md);
@@ -431,14 +436,17 @@ body {
   border-radius: var(--radius-lg);
 
   &__wrapper {
-    // 确保对话框遮罩层正常显示
     position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
     overflow: auto;
-    z-index: var(--z-index-modal);
+    z-index: var(--z-index-modal) !important;
+  }
+
+  &__overlay {
+    z-index: var(--z-index-overlay) !important;
   }
 
   &__header {
@@ -489,7 +497,7 @@ body {
 // Form 表单
 .el-form {
   &-item {
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
     
     &__label {
       font-size: var(--font-size-base);
@@ -1151,14 +1159,6 @@ body {
   z-index: var(--z-index-popout) !important;
 }
 
-.el-dialog__wrapper {
-  z-index: var(--z-index-modal) !important;
-}
-
-.el-dialog__overlay {
-  z-index: var(--z-index-overlay) !important;
-}
-
 .el-message {
   z-index: var(--z-index-toast) !important;
 }
@@ -1425,17 +1425,31 @@ body {
   }
 }
 
-// 添加或修改 v-modal 相关样式
-.v-modal {
-  z-index: var(--z-index-overlay) !important;  // 覆盖默认的 2000
-}
+// Drawer 抽屉
+.el-drawer {
+  font-family: var(--font-family-base);
 
-// 确保其他相关组件的 z-index 正确
-.el-dialog__wrapper {
-  z-index: var(--z-index-modal) !important;  // 应该比 overlay 高
-}
+  &__header {
+    padding: var(--spacing-md) var(--spacing-lg);
+    margin-bottom: 0;
+    font-size: var(--font-size-lg);
+    font-weight: 500;
+    color: var(--color-info-900);
+  }
 
-.el-drawer__wrapper {
-  z-index: var(--z-index-modal) !important;  // 应该比 overlay 高
+  &__body {
+    padding: var(--spacing-lg);
+    font-size: var(--font-size-base);
+  }
+
+  &__wrapper {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: auto;
+    z-index: var(--z-index-modal) !important;
+  }
 }
  
