@@ -1438,4 +1438,22 @@ body {
     z-index: var(--z-index-modal) !important;
   }
 }
+
+// 组件间距
+.el-button + .el-button {
+  margin-left: var(--spacing-md);  // 16px
+}
+
+.el-checkbox.is-bordered + .el-checkbox.is-bordered {
+  margin-left: var(--spacing-xs);  // 16px
+}
+
+// 其他相似的组件间距也应该统一
+.el-radio.is-bordered + .el-radio.is-bordered {
+  margin-left: var(--spacing-xs);
+}
+
+.el-tag + .el-tag {
+  margin-left: var(--spacing-xs);
+}
  
