@@ -41,4 +41,10 @@ export const Password = Template.bind({});
 Password.args = {
   type: 'password',
   placeholder: '请输入密码',
+};
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+  disabled: true,
+  placeholder: '禁用状态',
 }; 

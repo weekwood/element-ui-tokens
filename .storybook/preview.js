@@ -3,6 +3,7 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import '../src/styles/tokens.css';
 import '../src/styles/element-override.scss';
+import '../src/styles/utilities.scss';
 
 Vue.use(ElementUI);
 

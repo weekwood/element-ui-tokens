@@ -1,0 +1,168 @@
+// 使用 CSS 变量定义基础字体大小，默认为 14px
+:root {
+  --base-font-size: 14px;
+}
+
+html {
+  font-size: var(--base-font-size);
+}
+
+// 使用像素作为基础单位，而不是 rem
+$spacing-unit: 4px;  // 基础单位改为 4px
+
+// 生成 margin 工具类
+@each $space in (0, 1, 2, 3, 4, 5, 6, 8, 10, 12, 16, 20, 24, 32, 40, 48, 56, 64) {
+  // margin
+  .m-#{$space} {
+    margin: #{$space * $spacing-unit};  // 直接使用像素值
+  }
+  
+  // margin-top
+  .mt-#{$space} {
+    margin-top: #{$space * $spacing-unit} !important;
+  }
+  
+  // margin-right
+  .mr-#{$space} {
+    margin-right: #{$space * $spacing-unit} !important;
+  }
+  
+  // margin-bottom
+  .mb-#{$space} {
+    margin-bottom: #{$space * $spacing-unit} !important;
+  }
+  
+  // margin-left
+  .ml-#{$space} {
+    margin-left: #{$space * $spacing-unit} !important;
+  }
+  
+  // margin-x (左右)
+  .mx-#{$space} {
+    margin-left: #{$space * $spacing-unit} !important;
+    margin-right: #{$space * $spacing-unit} !important;
+  }
+  
+  // margin-y (上下)
+  .my-#{$space} {
+    margin-top: #{$space * $spacing-unit} !important;
+    margin-bottom: #{$space * $spacing-unit} !important;
+  }
+
+  // padding
+  .p-#{$space} {
+    padding: #{$space * $spacing-unit} !important;
+  }
+  
+  // padding-top
+  .pt-#{$space} {
+    padding-top: #{$space * $spacing-unit} !important;
+  }
+  
+  // padding-right
+  .pr-#{$space} {
+    padding-right: #{$space * $spacing-unit} !important;
+  }
+  
+  // padding-bottom
+  .pb-#{$space} {
+    padding-bottom: #{$space * $spacing-unit} !important;
+  }
+  
+  // padding-left
+  .pl-#{$space} {
+    padding-left: #{$space * $spacing-unit} !important;
+  }
+  
+  // padding-x (左右)
+  .px-#{$space} {
+    padding-left: #{$space * $spacing-unit} !important;
+    padding-right: #{$space * $spacing-unit} !important;
+  }
+  
+  // padding-y (上下)
+  .py-#{$space} {
+    padding-top: #{$space * $spacing-unit} !important;
+    padding-bottom: #{$space * $spacing-unit} !important;
+  }
+}
+
+// 添加一些特殊值
+.m-auto { margin: auto !important; }
+.mx-auto { 
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+// 添加响应式断点 - 只保留到 xl
+$breakpoints: (
+  'sm': 640px,
+  'md': 768px,
+  'lg': 1024px,
+  'xl': 1280px,
+);
+
+@each $breakpoint, $value in $breakpoints {
+  @media (min-width: $value) {
+    @each $space in (0, 1, 2, 3, 4, 5, 6, 8, 10, 12, 16, 20, 24, 32, 40, 48, 56, 64) {
+      // Margins
+      .#{$breakpoint}\:m-#{$space} {
+        margin: #{$space * $spacing-unit} !important;
+      }
+      .#{$breakpoint}\:mt-#{$space} {
+        margin-top: #{$space * $spacing-unit} !important;
+      }
+      .#{$breakpoint}\:mr-#{$space} {
+        margin-right: #{$space * $spacing-unit} !important;
+      }
+      .#{$breakpoint}\:mb-#{$space} {
+        margin-bottom: #{$space * $spacing-unit} !important;
+      }
+      .#{$breakpoint}\:ml-#{$space} {
+        margin-left: #{$space * $spacing-unit} !important;
+      }
+      .#{$breakpoint}\:mx-#{$space} {
+        margin-left: #{$space * $spacing-unit} !important;
+        margin-right: #{$space * $spacing-unit} !important;
+      }
+      .#{$breakpoint}\:my-#{$space} {
+        margin-top: #{$space * $spacing-unit} !important;
+        margin-bottom: #{$space * $spacing-unit} !important;
+      }
+
+      // Paddings
+      .#{$breakpoint}\:p-#{$space} {
+        padding: #{$space * $spacing-unit} !important;
+      }
+      .#{$breakpoint}\:pt-#{$space} {
+        padding-top: #{$space * $spacing-unit} !important;
+      }
+      .#{$breakpoint}\:pr-#{$space} {
+        padding-right: #{$space * $spacing-unit} !important;
+      }
+      .#{$breakpoint}\:pb-#{$space} {
+        padding-bottom: #{$space * $spacing-unit} !important;
+      }
+      .#{$breakpoint}\:pl-#{$space} {
+        padding-left: #{$space * $spacing-unit} !important;
+      }
+      .#{$breakpoint}\:px-#{$space} {
+        padding-left: #{$space * $spacing-unit} !important;
+        padding-right: #{$space * $spacing-unit} !important;
+      }
+      .#{$breakpoint}\:py-#{$space} {
+        padding-top: #{$space * $spacing-unit} !important;
+        padding-bottom: #{$space * $spacing-unit} !important;
+      }
+    }
+
+    // 特殊值的响应式支持
+    .#{$breakpoint}\:m-auto {
+      margin: auto !important;
+    }
+    .#{$breakpoint}\:mx-auto {
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+  }
+} 

@@ -52,4 +52,18 @@ export const Large = Template.bind({});
 Large.args = {
   type: 'primary',
   size: 'large',
+};
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+  disabled: true,
+  type: 'primary',
+  children: '禁用按钮',
+};
+
+export const TextDisabled = Template.bind({});
+TextDisabled.args = {
+  disabled: true,
+  type: 'text',
+  children: '禁用文字按钮',
 }; 

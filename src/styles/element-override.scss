@@ -105,6 +105,14 @@ body {
       font-size: var(--font-size-lg);
     }
   }
+
+  &.is-disabled,
+  &.is-disabled:hover,
+  &.is-disabled:focus {
+    background-color: var(--color-bg-disabled);
+    border-color: var(--color-info-200);
+    color: var(--color-info-400);
+  }
 }
 
 .el-input {
@@ -129,6 +137,12 @@ body {
   &__icon {
     height: var(--height-md);
     line-height: var(--height-md);
+  }
+
+  &.is-disabled .el-input__inner {
+    background-color: var(--color-bg-disabled);
+    border-color: var(--color-info-200);
+    color: var(--color-info-400);
   }
 }
 
@@ -183,6 +197,13 @@ body {
   &:hover {
     .el-radio__inner {
       border-color: var(--color-primary-hover);
+    }
+  }
+
+  &.is-disabled {
+    .el-radio__inner {
+      background-color: var(--color-bg-disabled);
+      border-color: var(--color-info-200);
     }
   }
 }

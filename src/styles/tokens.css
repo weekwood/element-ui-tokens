@@ -73,20 +73,40 @@
   --color-error-result: var(--color-error-500);
   --color-info-result: var(--color-info-500);
 
-  /* Spacing - 参考 Ant Design 的间距系统 */
+  /* Spacing 系统 - 保持常用的像素值 */
   --spacing-none: 0;
-  --spacing-xxs: 4px;     /* Ant Design 最小单位是 4px */
-  --spacing-xs: 8px;      /* 常用于小型内边距 */
-  --spacing-sm: 12px;     /* 常用于中小型内边距 */
-  --spacing-md: 16px;     /* 基础单位，最常用 */
-  --spacing-lg: 24px;     /* 常用于大型内边距 */
-  --spacing-xl: 32px;     /* 常用于区块间距 */
-  --spacing-2xl: 48px;    /* 常用于大区块间距 */
-  --spacing-3xl: 64px;    /* 用于特大区块间距 */
+  --spacing-xxs: 4px;      /* 最小单位 */
+  --spacing-xs: 8px;       /* 小间距 */
+  --spacing-sm: 12px;      /* 中小间距 */
+  --spacing-md: 16px;      /* 中间距 */
+  --spacing-lg: 24px;      /* 大间距 */
+  --spacing-xl: 32px;      /* 超大间距 */
+  --spacing-2xl: 48px;     /* 特大间距 */
+  --spacing-3xl: 64px;     /* 最大间距 */
+
+  /* 数字式命名（支持更细粒度） */
+  --spacing-0: 0px;
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-5: 20px;
+  --spacing-6: 24px;
+  --spacing-8: 32px;
+  --spacing-10: 40px;
+  --spacing-12: 48px;
+  --spacing-16: 64px;
+  --spacing-20: 80px;
+  --spacing-24: 96px;
+  --spacing-32: 128px;
+  --spacing-40: 160px;
+  --spacing-48: 192px;
+  --spacing-56: 224px;
+  --spacing-64: 256px;
 
   /* Font Sizes - 参考 Ant Design 的字号系统 */
-  --font-size-xs: 12px;      /* 辅助文案 */
-  --font-size-sm: 14px;      /* 正文（小） */
+  --font-size-xs: 10px;      /* 辅助文案 */
+  --font-size-sm: 12px;      /* 正文（小） */
   --font-size-base: 14px;    /* 主字号 */
   --font-size-lg: 16px;      /* 标题 */
   --font-size-xl: 20px;      /* 主标题 */
@@ -100,13 +120,16 @@
   --height-lg: 36px;         /* 大型元素高度 */
   --height-xl: 40px;         /* 特大元素高度 */
 
-  /* Border Radius - 参考 Ant Design 的圆角系统 */
+  /* Border Radius - 使用像素值 */
   --radius-none: 0;
-  --radius-sm: 4px;          /* 小圆角 */
-  --radius-base: 6px;        /* 基础圆角 */
-  --radius-lg: 8px;          /* 大圆角 */
-  --radius-xl: 16px;         /* 特大圆角 */
-  --radius-full: 9999px;     /* 全圆角 */
+  --radius-sm: 2px;       /* 最小圆角 */
+  --radius-base: 4px;     /* 基础圆角 */
+  --radius-md: 6px;       /* 中等圆角 */
+  --radius-lg: 8px;       /* 大圆角 */
+  --radius-xl: 12px;      /* 超大圆角 */
+  --radius-2xl: 16px;     /* 特大圆角 */
+  --radius-3xl: 24px;     /* 最大圆角 */
+  --radius-full: 9999px;  /* 全圆角 */
 
   /* Typography - 参考 Ant Design 的字体系统 */
   --font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
@@ -132,4 +155,16 @@
   --z-index-popout: 800;      /* 弹出框,显示在所有其他元素之上 */
   --z-index-toast: 900;       /* 消息提示 */
   --z-index-modal: 1000;      /* 模态框,显示在遮罩和其他元素之上,但允许弹出框可见 */
+
+  /* Background Colors - 背景色系统 */
+  --color-bg-base: var(--color-info-50);      /* 基础背景色，使用 info-50 */
+  --color-bg-light: #ffffff;     /* 浅色背景，用于卡片等 */
+  --color-bg-hover: var(--color-info-50);     /* 悬浮态背景 */
+  --color-bg-disabled: var(--color-info-100);  /* 禁用态背景，使用 info-100 */
+
+  /* 功能性背景色 */
+  --color-bg-success: var(--color-success-50);  /* 成功背景 */
+  --color-bg-warning: var(--color-warning-50);  /* 警告背景 */
+  --color-bg-error: var(--color-error-50);      /* 错误背景 */
+  --color-bg-info: var(--color-info-50);        /* 信息背景 */
 } 

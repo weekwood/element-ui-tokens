@@ -49,4 +49,19 @@ const GroupTemplate = (args, { argTypes }) => ({
   `,
 });
 
-export const RadioGroup = GroupTemplate.bind({}); 
+export const RadioGroup = GroupTemplate.bind({});
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+  disabled: true,
+  label: '选项1',
+  children: '禁用状态',
+};
+
+export const DisabledChecked = Template.bind({});
+DisabledChecked.args = {
+  disabled: true,
+  checked: true,
+  label: '选项1',
+  children: '禁用且选中',
+}; 
