@@ -1,0 +1,93 @@
+.advanced-search {
+  // 默认变量
+  --form-item-width: 280px;
+  --form-label-width: 80px;
+  --form-spacing: var(--spacing-md);
+
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--form-spacing);
+  }
+
+  &__items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--form-spacing);
+    width: 100%;
+
+    .el-form-item {
+      margin: 0;
+      width: var(--form-item-width);
+      min-width: 0;
+
+      &__label {
+        width: var(--form-label-width);
+      }
+
+      &__content {
+        flex: 1;
+        min-width: 0;
+
+        .el-input,
+        .el-select {
+          width: 100%;
+        }
+      }
+    }
+
+    // 按钮组特殊处理
+    .advanced-search__actions {
+      width: var(--form-item-width);
+      display: flex;
+      align-items: flex-start;
+      gap: var(--spacing-xs);
+      margin-left: auto;
+      order: 3; // 默认在第一行最后
+    }
+  }
+
+  // 默认收起状态
+  &:not(.is-expanded) {
+    .el-form-item:nth-child(n + 4) {
+      display: none;
+    }
+
+    .advanced-search__actions {
+      display: flex; // 始终显示
+    }
+  }
+
+  // 响应式布局
+  @media (max-width: 1200px) {
+    &:not(.is-expanded) {
+      .el-form-item:nth-child(n + 3) {
+        display: none;
+      }
+    }
+
+    .advanced-search__actions {
+      order: 2; // 中屏时在第二个位置
+    }
+  }
+
+  @media (max-width: 768px) {
+    &__items {
+      .el-form-item {
+        width: 100%;
+      }
+
+      .advanced-search__actions {
+        width: 100%;
+        margin-left: var(--form-label-width);
+        order: 1; // 小屏时在第一个位置
+      }
+    }
+
+    &:not(.is-expanded) {
+      .el-form-item:nth-child(n + 2) {
+        display: none;
+      }
+    }
+  }
+} 
