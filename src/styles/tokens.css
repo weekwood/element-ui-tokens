@@ -167,4 +167,11 @@
   --color-bg-warning: var(--color-warning-50);  /* 警告背景 */
   --color-bg-error: var(--color-error-50);      /* 错误背景 */
   --color-bg-info: var(--color-info-50);        /* 信息背景 */
+
+  /* 文字颜色 */
+  --color-text-primary: #1f2937;    /* 主要文字 */
+  --color-text-secondary: #4b5563;  /* 次要文字 */
+  --color-text-disabled: #9ca3af;   /* 禁用文字 */
+  --color-text-placeholder: #9ca3af; /* 占位符 */
+  --color-text-inverse: #ffffff;    /* 反色文字 */
 } 

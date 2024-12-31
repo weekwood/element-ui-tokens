@@ -1,0 +1,171 @@
+// 只保留两个业务菜单相关的样式
+.menu {
+  &.el-menu--horizontal {
+    display: block;
+    height: 56px;
+    border: none;
+    background: linear-gradient(90deg, #007FFF 0%, #03B3FF 100%);
+    > .el-menu-item,
+    > .el-submenu > .el-submenu__title {
+      min-width: 118px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 400;
+      .el-icon-arrow-down {
+        color: #fff;
+      }
+      &:hover,
+      &.is-active {
+        background-color: rgba(255, 255, 255, 0.3) !important;
+        border-bottom-color: transparent !important;
+        color: #fff;
+      }
+      &.is-active {
+        font-weight: 700;
+      }
+    }
+  }
+}
+
+// 更多下拉菜单的样式
+.menu-more-dropdown {
+  .el-menu--popup {
+    min-width: 200px;
+    
+    .el-menu-item {
+      height: 40px;
+      line-height: 40px;
+      padding: 0 20px;
+      
+      &:hover {
+        background-color: var(--color-primary-50);
+      }
+      
+      &.is-active {
+        color: var(--color-primary-500);
+        background-color: var(--color-primary-50);
+      }
+    }
+  }
+}
+
+.menu-vertical {
+  width: 200px;
+  border-right: none;
+  background-color: var(--color-primary-100);
+
+  .el-menu-item,
+  .el-submenu__title {
+    height: var(--height-xl) !important;
+    line-height: var(--height-xl) !important;
+    padding: 0 var(--spacing-4);
+    color: var(--color-text-primary);
+    font-size: var(--font-size-base);
+    font-weight: normal;
+    
+    i {
+      position: relative;
+      color: var(--color-text-secondary);
+      font-size: var(--font-size-lg);
+      margin-right: var(--spacing-2);
+    }
+
+    &:hover {
+      background-color: var(--color-primary-50);
+    }
+  }
+
+  .el-menu--inline {
+    position: relative;
+
+    .el-menu-item {
+      position: relative;
+      
+      .menu-item-content {
+        position: relative;
+        z-index: 3;
+      }
+      
+      &::before {
+        content: '';
+        position: absolute;
+        left: var(--spacing-8);
+        top: 50%;
+        width: 4px;
+        height: 4px;
+        margin-top: -2px;
+        border: 1px solid var(--color-primary-300);
+        border-radius: 50%;
+        background-color: var(--color-primary-100);
+        z-index: 2;
+      }
+
+      &:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        left: 34px;
+        top: 50%;
+        height: calc(var(--height-xl));
+        width: 1px;
+        background-color: var(--color-primary-300);
+        z-index: 1;
+      }
+    }
+  }
+
+  .el-menu-item {
+    &:hover,
+    &.is-active {
+      position: relative;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-color: var(--color-primary-50);
+        z-index: 0;
+      }
+    }
+
+    &.is-active {
+      color: var(--color-text-primary);
+      font-weight: 500;
+      border-right: 2px solid var(--color-primary-500);
+
+      &::before {
+        border-color: var(--color-primary-500);
+        background-color: var(--color-primary-500);
+      }
+    }
+  }
+
+  .el-submenu .el-menu {
+    background-color: var(--color-primary-100);
+  }
+
+  .menu-item-content {
+    margin-left: var(--spacing-4);
+  }
+
+  .el-menu-item-group__title {
+    display: none;
+  }
+
+  .el-submenu__title {
+    position: relative;
+
+    .el-submenu__icon-arrow {
+      position: absolute;
+      right: var(--spacing-4);
+      margin-top: -6px;
+      font-size: var(--font-size-base);
+      color: var(--color-text-secondary);
+    }
+  }
+} 
