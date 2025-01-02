@@ -1,0 +1,161 @@
+.tree-with-line {
+  // 变量定义
+  $base-indent: 16px;
+  $max-level: 4;
+  $line-color: #DCDFE6;
+  $hover-color: #F5F7FA;
+  $icon-color: #606266;
+  $line-width: 1px;
+  $node-padding: 8px;
+
+  // 连接线混入
+  @mixin line-style {
+    content: '';
+    position: absolute;
+    width: $line-width;
+    border-left: $line-width solid $line-color;
+  }
+
+  @mixin horizontal-line {
+    content: '';
+    position: absolute;
+    width: $node-padding;
+    height: $line-width;
+    border-top: $line-width solid $line-color;
+  }
+
+  .el-tree-node {
+    position: relative;
+    
+    // 节点内容
+    .el-tree-node__content {
+      position: relative;
+      padding-left: $base-indent !important;
+
+      &:hover {
+        background-color: transparent;
+      }
+
+      .custom-tree-node {
+        padding: $node-padding;
+        
+        &:hover, .is-current & {
+          background-color: $hover-color;
+          border-radius: 4px;
+        }
+      }
+    }
+
+    // 有子节点的样式
+    &:not(.is-leaf) {
+      > .el-tree-node__content {
+        .el-tree-node__expand-icon {
+          color: $icon-color;
+        }
+      }
+
+      // 子节点容器的连接线
+      > .el-tree-node__children {
+        position: relative;
+        
+        &::before {
+          @include line-style;
+          left: -$node-padding;
+          top: 0;
+          height: 100%;
+        }
+
+        .el-tree-node {
+          > .el-tree-node__content {
+            padding-left: $base-indent * 2 !important;
+          }
+
+          > .el-tree-node__children {
+            &::before {
+              left: $base-indent * 2 + $node-padding;
+            }
+
+            .el-tree-node {
+              > .el-tree-node__content {
+                padding-left: $base-indent * 3 !important;
+              }
+
+              > .el-tree-node__children {
+                &::before {
+                  left: $base-indent * 3 + $node-padding;
+                }
+
+                .el-tree-node {
+                  > .el-tree-node__content {
+                    padding-left: $base-indent * 4 !important;
+                  }
+
+                  > .el-tree-node__children {
+                    &::before {
+                      left: $base-indent * 4 + $node-padding;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      &:last-child > .el-tree-node__children::before {
+        display: none;
+      }
+    }
+
+    // 叶子节点连接线
+    .is-leaf.el-tree-node__expand-icon.el-icon-caret-right {
+      position: relative;
+      color: transparent;
+
+      &::before {
+        @include line-style;
+        left: $node-padding;
+        top: -21px;
+        height: 36px;
+      }
+
+      &::after {
+        @include horizontal-line;
+        left: $node-padding;
+        top: 50%;
+      }
+    }
+
+    // 特殊位置的叶子节点
+    &:first-child > .el-tree-node__content .is-leaf.el-tree-node__expand-icon.el-icon-caret-right::before {
+      top: 0;
+      height: 26px;
+    }
+
+    &:last-child > .el-tree-node__content .is-leaf.el-tree-node__expand-icon.el-icon-caret-right::before {
+      top: -18px;
+      height: 24px;
+    }
+  }
+
+  // 根节点特殊处理
+  > .el-tree-node {
+    > .el-tree-node__content {
+      padding-left: 0 !important;
+
+      .el-tree-node__expand-icon {
+        &::before, &::after {
+          display: none;
+        }
+      }
+    }
+
+    > .el-tree-node__children {
+      padding-left: 0;
+
+      &::before {
+        display: none;
+      }
+    }
+  }
+} 

@@ -1,0 +1,21 @@
+# Dependencies
+node_modules/
+vendor/
+
+# Build output
+dist/
+build/
+
+# Large files
+*.lock
+package-lock.json
+
+# Cache
+.cache/
+.temp/
+
+# Test coverage
+coverage/
+
+# Logs
+*.log 

@@ -1,0 +1,80 @@
+// solid 变体的表单样式
+.el-form--solid {
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: var(--color-bg-white);
+  font-family: var(--font-family-base);
+
+  // 一行5个布局
+  &.el-form--5-cols {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+
+    .el-form-item {
+      margin: 0;
+      flex: 0 0 calc(20% - 48px);
+      min-height: 32px;
+      background: var(--color-bg-base);
+      border-radius: var(--radius-base);
+      display: flex;
+      align-items: center;
+      padding: var(--spacing-xs) var(--spacing-md);
+      
+      &__label {
+        color: var(--color-text-secondary);
+        font-size: var(--font-size-base);
+        font-family: var(--font-family-base);
+        line-height: 20px;
+        flex-shrink: 0;
+      }
+
+      &__content {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        margin-left: var(--spacing-sm);
+
+        // 输入框和选择器去掉边框和背景
+        .el-input__inner {
+          border: none;
+          background: transparent;
+          padding: 0;
+          height: 20px;
+          line-height: 20px;
+          color: var(--color-text-primary);
+          font-family: var(--font-family-base);
+          padding-left: var(--spacing-lg);
+          width: 100%;
+        }
+
+        // 日期选择器宽度
+        .el-date-editor {
+          width: 100%;
+          .el-input__prefix {
+            left: -4px;
+          }
+        }
+
+        // 下拉框
+        .el-select {
+          width: 100%;
+          .el-input__suffix {
+            right: -4px;
+          }
+        }
+
+        // 纯文本显示
+        span {
+          color: var(--color-text-primary);
+          font-weight: 700;
+          font-family: var(--font-family-base);
+          
+          &:first-child {
+            color: var(--color-error-500);
+          }
+        }
+      }
+    }
+  }
+} 
