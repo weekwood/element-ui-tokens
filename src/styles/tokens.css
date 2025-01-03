@@ -108,6 +108,7 @@
   --font-size-xs: 10px;      /* 辅助文案 */
   --font-size-sm: 12px;      /* 正文（小） */
   --font-size-base: 14px;    /* 主字号 */
+  --font-size: 14px;         /* 主字号，与 font-size-base 相同 */
   --font-size-lg: 16px;      /* 标题 */
   --font-size-xl: 20px;      /* 主标题 */
   --font-size-2xl: 24px;     /* 大标题 */
@@ -124,6 +125,7 @@
   --radius-none: 0;
   --radius-sm: 2px;       /* 最小圆角 */
   --radius-base: 4px;     /* 基础圆角 */
+  --radius: 4px;          /* 基础圆角，与 radius-base 相同 */
   --radius-md: 6px;       /* 中等圆角 */
   --radius-lg: 8px;       /* 大圆角 */
   --radius-xl: 12px;      /* 超大圆角 */
@@ -140,6 +142,7 @@
   /* Line Heights - 参考 Ant Design */
   --line-height-tight: 1.2;    /* 紧凑 */
   --line-height-base: 1.5715;  /* 基础 - Ant Design 默认行高 */
+  --line-height: 1.5715;       /* 基础行高，与 line-height-base 相同 */
   --line-height-loose: 2;      /* 宽松 */
 
   /* Z-index 系统 */
@@ -174,4 +177,13 @@
   --color-text-disabled: #9ca3af;   /* 禁用文字 */
   --color-text-placeholder: #9ca3af; /* 占位符 */
   --color-text-inverse: #ffffff;    /* 反色文字 */
+
+  /* 阴影 */
+  --shadow-none: none;  /* 用于平面元素，无需强调层次感时使用 */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);  /* 用于卡片、按钮等轻微突出的界面元素 */
+  --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);  /* 常用的基础投影 */
+  --shadow-base: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);  /* 常用的基础投影，与 shadow 相同 */
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);  /* 用于下拉菜单、悬浮卡片等需要明显分层的元素 */
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);  /* 用于模态框、对话框等需要强调重要性的浮层 */
+  --shadow-xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);  /* 用于全局通知、警告等需要最高层级的元素 */
 } 
