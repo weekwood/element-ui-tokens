@@ -1375,4 +1375,34 @@
     background-color: rgb(255 255 255 / 90%);
   }
 }
+
+.el-card {
+  border: none;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: box-shadow 0.3s;
+
+  &:hover {
+    box-shadow: var(--shadow-md);
+  }
+
+  &.is-always-shadow {
+    box-shadow: var(--shadow);
+  }
+
+  &.is-hover-shadow:hover {
+    box-shadow: var(--shadow-md);
+  }
+
+  .el-card__header {
+    padding: var(--spacing-4) var(--spacing-4);
+    border-bottom: 1px solid var(--color-info-200);
+    font-size: var(--font-size-lg);
+    font-weight: 500;
+  }
+
+  .el-card__body {
+    padding: var(--spacing-4);
+  }
+}
  
