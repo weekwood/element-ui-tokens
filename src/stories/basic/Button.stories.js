@@ -66,4 +66,39 @@ TextDisabled.args = {
   disabled: true,
   type: 'text',
   children: '禁用文字按钮',
-}; 
+};
+
+export const Circle = () => ({
+  template: `
+    <div class="demo-button">
+      <el-button type="primary" icon="el-icon-edit" circle></el-button>
+      <el-button type="success" icon="el-icon-check" circle></el-button>
+      <el-button type="info" icon="el-icon-message" circle></el-button>
+      <el-button type="warning" icon="el-icon-star-off" circle></el-button>
+      <el-button type="danger" icon="el-icon-delete" circle></el-button>
+    </div>
+  `
+});
+
+export const CircleSize = () => ({
+  template: `
+    <div class="demo-button">
+      <el-button type="primary" icon="el-icon-edit" size="large" circle></el-button>
+      <el-button type="primary" icon="el-icon-edit" circle></el-button>
+      <el-button type="primary" icon="el-icon-edit" size="small" circle></el-button>
+      <el-button type="primary" icon="el-icon-edit" size="mini" circle></el-button>
+    </div>
+  `
+});
+
+export const CircleText = () => ({
+  template: `
+    <div class="demo-button">
+      <el-button type="primary" circle>A</el-button>
+      <el-button type="success" circle>B</el-button>
+      <el-button type="info" circle>C</el-button>
+      <el-button type="warning" circle>D</el-button>
+      <el-button type="danger" circle>E</el-button>
+    </div>
+  `
+}); 
