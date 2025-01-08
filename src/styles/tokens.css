@@ -154,10 +154,10 @@
   --z-index-nav: 400;         /* 导航 */
   --z-index-header: 500;      /* 顶部栏 */
   --z-index-overlay: 600;     /* 模态框和弹出层的遮罩 */
-  --z-index-spinner: 700;     /* 加载动画,显示在遮罩之上 */
-  --z-index-popout: 800;      /* 弹出框,显示在所有其他元素之上 */
-  --z-index-toast: 900;       /* 消息提示 */
-  --z-index-modal: 1000;      /* 模态框,显示在遮罩和其他元素之上,但允许弹出框可见 */
+  --z-index-modal: 700;      /* 模态框,显示在遮罩和其他元素之上,但允许弹出框可见 */
+  --z-index-spinner: 800;     /* 加载动画,显示在遮罩之上 */
+  --z-index-popout: 900;      /* 弹出框,显示在所有其他元素之上 */
+  --z-index-toast: 1000;       /* 消息提示 */
 
   /* Background Colors - 背景色系统 */
   --color-bg-base: var(--color-info-50);      /* 基础背景色，使用 info-50 */
