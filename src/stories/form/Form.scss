@@ -1,0 +1,58 @@
+.demo-form {
+  width: 600px;
+  padding: var(--spacing-lg);
+  background: #fff;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+
+  // 重要字段样式
+  .form-item--important {
+    .el-form-item__label {
+      color: var(--color-warning-600);
+    }
+
+    .el-input-group__prepend {
+      background-color: var(--color-warning-100);
+      border-color: var(--color-warning-300);
+      color: var(--color-warning-500);
+      padding: 0 var(--spacing-xs);
+    }
+
+    .el-input__inner,
+    .el-textarea__inner {
+      border-color: var(--color-warning-300);
+      background-color: var(--color-warning-100);
+      
+      &:hover {
+        border-color: var(--color-warning-400);
+      }
+      
+      &:focus {
+        border-color: var(--color-warning-500);
+        background-color: #fff;
+      }
+    }
+  }
+
+  // 提示信息样式
+  .form-item__tip {
+    margin-top: var(--spacing-xs);
+    color: var(--color-warning-500);
+    font-size: var(--font-size-sm);
+    line-height: 1.5;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+
+    .el-icon-info {
+      color: var(--color-warning-500);
+    }
+  }
+
+  // 按钮组样式
+  .el-form-item:last-child {
+    margin-bottom: 0;
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--color-info-200);
+  }
+} 
