@@ -273,21 +273,21 @@
     &--#{$size} {
       .el-input__inner {
         @if $size == 'mini' {
-          height: var(--height-xs);
-          line-height: var(--height-xs);
-          font-size: var(--font-size-base);  // 14px
+          height: var(--height-xs) !important;
+          line-height: var(--height-xs) !important;
+          font-size: var(--font-size-base);
         } @else if $size == 'small' {
-          height: var(--height-sm);
-          line-height: var(--height-sm);
-          font-size: var(--font-size-base);  // 14px
+          height: var(--height-sm) !important;
+          line-height: var(--height-sm) !important;
+          font-size: var(--font-size-base);
         } @else if $size == 'medium' {
-          height: var(--height-md);
-          line-height: var(--height-md);
-          font-size: var(--font-size-base);  // 14px
+          height: var(--height-md) !important;
+          line-height: var(--height-md) !important;
+          font-size: var(--font-size-base);
         } @else if $size == 'large' {
-          height: var(--height-lg);
-          line-height: var(--height-lg);
-          font-size: var(--font-size-lg);  // 16px
+          height: var(--height-lg) !important;
+          line-height: var(--height-lg) !important;
+          font-size: var(--font-size-lg);
         }
       }
 
@@ -1285,15 +1285,53 @@
   position: relative;
   display: inline-block;
   width: 180px;
-  line-height: var(--height-md);
 
   // 基础样式
   .el-input__inner {
     padding-left: var(--spacing-xl);
     padding-right: var(--spacing-xl);
     text-align: center;
+  }
+
+  // 不同尺寸的输入框样式
+  &--mini {
+    height: var(--height-xs);
+    line-height: var(--height-xs);
+    .el-input-number__decrease,
+    .el-input-number__increase {
+      height: calc((var(--height-xs) - 2px) / 2) !important;
+      line-height: calc((var(--height-xs) - 2px) / 2) !important;
+    }
+  }
+
+  &--small {
+    height: var(--height-sm);
+    line-height: var(--height-sm);
+    .el-input-number__decrease,
+    .el-input-number__increase {
+      height: calc((var(--height-sm) - 2px) / 2) !important;
+      line-height: calc((var(--height-sm) - 2px) / 2) !important;
+    }
+  }
+
+  &--medium {
     height: var(--height-md);
     line-height: var(--height-md);
+    .el-input-number__decrease,
+    .el-input-number__increase {
+      height: calc((var(--height-md) - 2px) / 2) !important;
+      line-height: calc((var(--height-md) - 2px) / 2) !important;
+    }
+  }
+
+  &--large {
+    height: var(--height-lg);
+    line-height: var(--height-lg);
+    .el-input-number__decrease,
+    .el-input-number__increase {
+      height: calc((var(--height-lg) - 2px) / 2) !important;
+      line-height: calc((var(--height-lg) - 2px) / 2) !important;
+    }
   }
 
   // 默认模式的上下箭头
@@ -1303,8 +1341,8 @@
       position: absolute;
       z-index: 1;
       width: 32px;
-      height: calc(var(--height-md) - 2px);
-      line-height: calc(var(--height-md) - 2px);
+      height: var(--height-md);
+      line-height: var(--height-md);
       text-align: center;
       background-color: transparent;
       color: var(--color-text-secondary);
@@ -1327,6 +1365,10 @@
         background-color: var(--color-bg-disabled);
         cursor: not-allowed;
       }
+
+      &:hover:not(.is-disabled) ~ .el-input .el-input__inner:not(.is-disabled) {
+        border-color: var(--color-primary-500);
+      }
     }
 
     .el-input-number__decrease {
@@ -1335,6 +1377,39 @@
 
     .el-input-number__increase {
       right: 1px;
+    }
+
+    // 不同尺寸的样式
+    &.el-input-number--mini {
+      .el-input-number__decrease,
+      .el-input-number__increase {
+        height: var(--height-xs) !important;
+        line-height: var(--height-xs) !important;
+      }
+    }
+
+    &.el-input-number--small {
+      .el-input-number__decrease,
+      .el-input-number__increase {
+        height: var(--height-sm) !important;
+        line-height: var(--height-sm) !important;
+      }
+    }
+
+    &.el-input-number--medium {
+      .el-input-number__decrease,
+      .el-input-number__increase {
+        height: var(--height-md) !important;
+        line-height: var(--height-md) !important;
+      }
+    }
+
+    &.el-input-number--large {
+      .el-input-number__decrease,
+      .el-input-number__increase {
+        height: var(--height-lg) !important;
+        line-height: var(--height-lg) !important;
+      }
     }
   }
 
@@ -1390,37 +1465,6 @@
       top: 1px;
       border-radius: 0 var(--radius-base) 0 0;
       border-bottom: 1px solid var(--color-info-200);
-    }
-  }
-
-  // 不同尺寸的样式
-  &--mini {
-    line-height: var(--height-xs);
-    &.is-controls-right {
-      .el-input-number__decrease,
-      .el-input-number__increase {
-        line-height: calc(var(--height-xs) / 2);
-      }
-    }
-  }
-
-  &--small {
-    line-height: var(--height-sm);
-    &.is-controls-right {
-      .el-input-number__decrease,
-      .el-input-number__increase {
-        line-height: calc(var(--height-sm) / 2);
-      }
-    }
-  }
-
-  &--large {
-    line-height: var(--height-lg);
-    &.is-controls-right {
-      .el-input-number__decrease,
-      .el-input-number__increase {
-        line-height: calc(var(--height-lg) / 2);
-      }
     }
   }
 }
@@ -1616,31 +1660,72 @@
 }
 
 .el-input-number {
-  // 默认模式的上下箭头
   &:not(.is-controls-right) {
     .el-input-number__decrease,
     .el-input-number__increase {
-      &.is-disabled {
-        color: var(--color-text-quaternary);
-        background-color: var(--color-bg-disabled);
-        cursor: not-allowed;
+      &:hover:not(.is-disabled) {
+        color: var(--color-primary-500);
+        background-color: transparent;
+
+        & ~ .el-input .el-input__inner:not(.is-disabled) {
+          border-color: var(--color-primary-500);
+        }
       }
     }
   }
 
-  // 右侧控制按钮模式
   &.is-controls-right {
     .el-input-number__decrease,
     .el-input-number__increase {
-      &.is-disabled {
-        color: var(--color-text-quaternary);
-        background-color: var(--color-bg-disabled);
-        cursor: not-allowed;
-        &:hover {
-          color: var(--color-text-quaternary);
-          background-color: var(--color-bg-disabled);
+      &:hover:not(.is-disabled) {
+        color: var(--color-primary-500);
+        background-color: var(--color-primary-bg-hover);
+
+        & ~ .el-input .el-input__inner:not(.is-disabled) {
+          border-color: var(--color-primary-500);
         }
       }
+    }
+  }
+
+  // 不同尺寸的样式
+  &.el-input-number--mini {
+    height: var(--height-xs);
+    line-height: var(--height-xs);
+    .el-input-number__decrease,
+    .el-input-number__increase {
+      height: calc((var(--height-xs) - 2px) / 2) !important;
+      line-height: calc((var(--height-xs) - 2px) / 2) !important;
+    }
+  }
+
+  &.el-input-number--small {
+    height: var(--height-sm);
+    line-height: var(--height-sm);
+    .el-input-number__decrease,
+    .el-input-number__increase {
+      height: calc((var(--height-sm) - 2px) / 2) !important;
+      line-height: calc((var(--height-sm) - 2px) / 2) !important;
+    }
+  }
+
+  &.el-input-number--medium {
+    height: var(--height-md);
+    line-height: var(--height-md);
+    .el-input-number__decrease,
+    .el-input-number__increase {
+      height: calc((var(--height-md) - 2px) / 2) !important;
+      line-height: calc((var(--height-md) - 2px) / 2) !important;
+    }
+  }
+
+  &.el-input-number--large {
+    height: var(--height-lg);
+    line-height: var(--height-lg);
+    .el-input-number__decrease,
+    .el-input-number__increase {
+      height: calc((var(--height-lg) - 2px) / 2) !important;
+      line-height: calc((var(--height-lg) - 2px) / 2) !important;
     }
   }
 }
