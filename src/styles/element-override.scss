@@ -188,7 +188,7 @@
   &__inner {
     height: var(--height-md);
     padding: 0 var(--spacing-sm);
-    font-size: var(--font-size-base);
+    font-size: var(--font-size-base);  // 14px
     border-radius: var(--radius-base);
     font-family: var(--font-family-base);
 
@@ -204,8 +204,7 @@
 
   // 修复图标高度问题
   &__icon {
-    height: var(--height-md);
-    line-height: var(--height-md);
+    line-height: inherit;
   }
 
   // 前置和后置元素样式
@@ -213,72 +212,39 @@
     &__prepend,
     &__append {
       background-color: var(--color-info-50);
-      border-color: var(--color-info-300);
       color: var(--color-info-600);
-      font-size: var(--font-size-base);
-      padding: 0;  // 默认无 padding
-      height: calc(var(--height-md) - 4px);  // 减去两边边框高度
-      line-height: calc(var(--height-md) - 4px);
-
-      // 当内部有按钮时的样式
-      .el-button {
-        margin: 0;
-        border: none;
-        background-color: transparent;
-        padding: 0 var(--spacing-sm);
-        height: 100%;
-        line-height: inherit;
-
-        &:hover,
-        &:focus {
-          color: var(--color-primary-500);
-          background-color: var(--color-primary-50);
-        }
-      }
-
-      // 当内部有下拉选择时的样式
-      .el-select {
-        margin: 0;
-        vertical-align: top;
-        .el-input {
-          vertical-align: top;
-          &__inner {
-            border: none;
-            background-color: transparent;
-            color: var(--color-info-600);
-            padding: 0 var(--spacing-sm);
-            height: calc(var(--height-md) - 4px);  // 减去两边边框高度
-            line-height: calc(var(--height-md) - 4px);
-          }
-        }
-      }
-
-      // 纯文本时添加 padding
-      &:not(:has(> .el-button)):not(:has(> .el-select)) {
-        padding: 0 var(--spacing-sm);
-      }
+      vertical-align: middle;
+      display: table-cell;
+      position: relative;
+      border: 1px solid var(--color-info-300);
+      border-radius: var(--radius-base);
+      width: 1px;
+      white-space: nowrap;
+      font-size: var(--font-size-base);  // 14px
     }
 
     &__prepend {
       border-right: none;
-      border-top-left-radius: var(--radius-base);
-      border-bottom-left-radius: var(--radius-base);
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
     }
 
     &__append {
       border-left: none;
-      border-top-right-radius: var(--radius-base);
-      border-bottom-right-radius: var(--radius-base);
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
     }
   }
 
   // 前缀和后缀图标样式
   &__prefix,
   &__suffix {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
     color: var(--color-info-500);
-    font-size: var(--font-size-base);
-    height: var(--height-md);
-    line-height: var(--height-md);
+    font-size: var(--font-size-base);  // 14px
     transition: color 0.2s;
 
     &:hover {
@@ -287,11 +253,14 @@
 
     .el-button {
       padding: 0;
-      height: calc(var(--height-md) - var(--spacing-sm));
-      width: calc(var(--height-md) - var(--spacing-sm));
       margin: calc(var(--spacing-xxs) * -1);
     }
   }
+
+  &__prefix {
+    padding-left: var(--spacing-sm);
+  }
+
 
   &.is-disabled .el-input__inner {
     background-color: var(--color-bg-disabled);
@@ -302,39 +271,59 @@
   // 不同尺寸的输入框样式
   @each $size in (mini, small, medium, large) {
     &--#{$size} {
+      .el-input__inner {
+        @if $size == 'mini' {
+          height: var(--height-xs);
+          line-height: var(--height-xs);
+          font-size: var(--font-size-base);  // 14px
+        } @else if $size == 'small' {
+          height: var(--height-sm);
+          line-height: var(--height-sm);
+          font-size: var(--font-size-base);  // 14px
+        } @else if $size == 'medium' {
+          height: var(--height-md);
+          line-height: var(--height-md);
+          font-size: var(--font-size-base);  // 14px
+        } @else if $size == 'large' {
+          height: var(--height-lg);
+          line-height: var(--height-lg);
+          font-size: var(--font-size-lg);  // 16px
+        }
+      }
+
       .el-input-group__prepend,
       .el-input-group__append {
         @if $size == 'mini' {
           height: calc(var(--height-xs) - 2px);
           line-height: calc(var(--height-xs) - 2px);
-          font-size: var(--font-size-xs);
+          font-size: var(--font-size-base);  // 14px
           .el-select .el-input__inner {
-            height: calc(var(--height-xs) - 4px);
-            line-height: calc(var(--height-xs) - 4px);
+            height: calc(var(--height-xs) - 2px);
+            line-height: calc(var(--height-xs) - 2px);
           }
         } @else if $size == 'small' {
           height: calc(var(--height-sm) - 2px);
           line-height: calc(var(--height-sm) - 2px);
-          font-size: var(--font-size-sm);
+          font-size: var(--font-size-base);  // 14px
           .el-select .el-input__inner {
-            height: calc(var(--height-sm) - 4px);
-            line-height: calc(var(--height-sm) - 4px);
+            height: calc(var(--height-sm) - 2px);
+            line-height: calc(var(--height-sm) - 2px);
           }
         } @else if $size == 'medium' {
           height: calc(var(--height-md) - 2px);
           line-height: calc(var(--height-md) - 2px);
-          font-size: var(--font-size-base);
+          font-size: var(--font-size-base);  // 14px
           .el-select .el-input__inner {
-            height: calc(var(--height-md) - 4px);
-            line-height: calc(var(--height-md) - 4px);
+            height: calc(var(--height-md) - 2px);
+            line-height: calc(var(--height-md) - 2px);
           }
         } @else if $size == 'large' {
           height: calc(var(--height-lg) - 2px);
           line-height: calc(var(--height-lg) - 2px);
-          font-size: var(--font-size-lg);
+          font-size: var(--font-size-lg);  // 16px
           .el-select .el-input__inner {
-            height: calc(var(--height-lg) - 4px);
-            line-height: calc(var(--height-lg) - 4px);
+            height: calc(var(--height-lg) - 2px);
+            line-height: calc(var(--height-lg) - 2px);
           }
         }
       }
@@ -347,6 +336,41 @@
   .el-input {
     &.is-focus .el-input__inner {
       border-color: var(--color-primary-500);
+    }
+
+    // 添加默认值
+    .el-input__inner {
+      height: var(--height-md);
+      line-height: var(--height-md);
+    }
+  }
+
+  // 不同尺寸的选择器样式
+  &--mini {
+    .el-input__inner {
+      height: var(--height-xs);
+      line-height: var(--height-xs);
+    }
+  }
+
+  &--small {
+    .el-input__inner {
+      height: var(--height-sm);
+      line-height: var(--height-sm);
+    }
+  }
+
+  &--medium {
+    .el-input__inner {
+      height: var(--height-md);
+      line-height: var(--height-md);
+    }
+  }
+
+  &--large {
+    .el-input__inner {
+      height: var(--height-lg);
+      line-height: var(--height-lg);
     }
   }
 
@@ -1328,22 +1352,30 @@
       height: calc((var(--height-md) - 2px) / 2);
       line-height: calc((var(--height-md) - 2px) / 2);
       right: 1px;
-      width: 0;
-      opacity: 0;
-      overflow: hidden;
+      width: 0;  // 初始宽度为0
+      opacity: 0;  // 初始透明度为0
+      overflow: hidden;  // 防止内容溢出
       background-color: var(--color-bg-container);
       border-left: 1px solid var(--color-info-200);
       color: var(--color-text-secondary);
-      transition: all 0.2s ease-in-out;
       cursor: pointer;
       font-size: var(--font-size-sm);
       display: flex;
       align-items: center;
       justify-content: center;
+      transition: all 0.2s ease-in-out;  // 添加过渡效果
 
       &:hover {
         color: var(--color-primary-500);
         background-color: var(--color-primary-bg-hover);
+      }
+    }
+
+    &:hover {
+      .el-input-number__decrease,
+      .el-input-number__increase {
+        opacity: 1;
+        width: 32px;
       }
     }
 
@@ -1358,14 +1390,6 @@
       top: 1px;
       border-radius: 0 var(--radius-base) 0 0;
       border-bottom: 1px solid var(--color-info-200);
-    }
-
-    &:hover {
-      .el-input-number__decrease,
-      .el-input-number__increase {
-        opacity: 1;
-        width: 32px;
-      }
     }
   }
 
