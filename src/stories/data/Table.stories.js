@@ -11,7 +11,7 @@ export default {
     stripe: { control: 'boolean' },
     size: {
       control: { type: 'select' },
-      options: ['large', 'medium', 'small', 'mini'],
+      options: ['medium', 'small', 'mini'],
     },
     customStyle: {
       control: 'object',
@@ -216,4 +216,104 @@ export const WithFilter = () => ({
       this.confirmedFilter = '';
     }
   }
+});
+
+export const DifferentSizes = () => ({
+  data() {
+    return {
+      tableData: [{
+        date: '2016-05-02',
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1518 弄'
+      }, {
+        date: '2016-05-04',
+        name: '王小明',
+        address: '上海市普陀区金沙江路 1517 弄'
+      }, {
+        date: '2016-05-01',
+        name: '李小红',
+        address: '上海市普陀区金沙江路 1519 弄'
+      }]
+    };
+  },
+  template: `
+    <div class="space-y-8">
+      <div>
+        <h3 class="mb-2">Mini 尺寸</h3>
+        <el-table
+          :data="tableData"
+          size="mini"
+          border
+          stripe
+          style="width: 100%"
+        >
+          <el-table-column
+            prop="date"
+            label="日期"
+            width="180"
+          />
+          <el-table-column
+            prop="name"
+            label="姓名"
+            width="180"
+          />
+          <el-table-column
+            prop="address"
+            label="地址"
+          />
+        </el-table>
+      </div>
+
+      <div>
+        <h3 class="mb-2">Small 尺寸</h3>
+        <el-table
+          :data="tableData"
+          size="small"
+          border
+          stripe
+          style="width: 100%"
+        >
+          <el-table-column
+            prop="date"
+            label="日期"
+            width="180"
+          />
+          <el-table-column
+            prop="name"
+            label="姓名"
+            width="180"
+          />
+          <el-table-column
+            prop="address"
+            label="地址"
+          />
+        </el-table>
+      </div>
+
+      <div>
+        <h3 class="mb-2">默认尺寸</h3>
+        <el-table
+          :data="tableData"
+          border
+          stripe
+          style="width: 100%"
+        >
+          <el-table-column
+            prop="date"
+            label="日期"
+            width="180"
+          />
+          <el-table-column
+            prop="name"
+            label="姓名"
+            width="180"
+          />
+          <el-table-column
+            prop="address"
+            label="地址"
+          />
+        </el-table>
+      </div>
+    </div>
+  `
 }); 

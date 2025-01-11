@@ -518,15 +518,47 @@
 .el-table {
   font-family: var(--font-family-base);
   font-size: var(--font-size-base);
-  
+  color: var(--color-text-primary);  
   th.el-table__cell {
-    background-color: #fafafa;  // Ant Design 的表头背景色
-    font-weight: 500;
-    padding: var(--spacing-xs) var(--spacing-sm);
+    background-color: var(--color-info-50);
+    color: var(--color-text-primary);
+    font-weight: 600;
+    padding: var(--spacing-sm);
+    border-bottom: 1px solid var(--color-info-200);
   }
   
   td.el-table__cell {
-    padding: var(--spacing-xs) var(--spacing-sm);
+    padding: var(--spacing-sm);
+    border-bottom: 1px solid var(--color-info-200);
+    transition: background 0.3s;
+  }
+
+  // 不同尺寸的表格样式
+  &.el-table--mini {
+    th.el-table__cell,
+    td.el-table__cell {
+      padding: var(--spacing-xs);
+      height: var(--height-xs);
+      line-height: var(--height-xs);
+    }
+  }
+
+  &.el-table--small {
+    th.el-table__cell,
+    td.el-table__cell {
+      padding: var(--spacing-sm);
+      height: var(--height-sm);
+      line-height: var(--height-sm);
+    }
+  }
+
+  &.el-table--medium {
+    th.el-table__cell,
+    td.el-table__cell {
+      padding: var(--spacing-md);
+      height: var(--height-md);
+      line-height: var(--height-md);
+    }
   }
 
   .el-table__row {
@@ -534,6 +566,28 @@
       td.el-table__cell {
         background-color: var(--color-primary-bg-hover);
       }
+    }
+  }
+
+  // 斑马纹
+  &.el-table--striped {
+    .el-table__row--striped {
+      td.el-table__cell {
+        background-color: var(--color-info-50);
+      }
+    }
+  }
+
+  // 表格边框
+  &.el-table--border {
+    &::after,
+    &::before {
+      background-color: var(--color-info-200);
+    }
+
+    th.el-table__cell,
+    td.el-table__cell {
+      border-right: 1px solid var(--color-info-200);
     }
   }
 }
