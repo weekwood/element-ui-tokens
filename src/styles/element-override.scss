@@ -202,9 +202,34 @@
     }
   }
 
-  // 修复图标高度问题
+  // 修复图标对齐问题
   &__icon {
-    line-height: inherit;
+    height: 100%;
+    width: 25px;
+    text-align: center;
+    transition: all .3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    &.el-icon-date {
+      font-size: var(--font-size-base);
+    }
+  }
+
+  // 日期范围选择器分隔符
+  .el-range-separator {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 0 var(--spacing-xxs);
+    margin: 0;
+    font-size: var(--font-size-base);
+    color: var(--color-text-secondary);
+    width: 24px;
+    line-height: 1;  // 确保文字垂直居中
+    vertical-align: middle;  // 确保整体垂直居中
   }
 
   // 前置和后置元素样式
@@ -256,11 +281,6 @@
       margin: calc(var(--spacing-xxs) * -1);
     }
   }
-
-  &__prefix {
-    padding-left: var(--spacing-sm);
-  }
-
 
   &.is-disabled .el-input__inner {
     background-color: var(--color-bg-disabled);
@@ -387,18 +407,55 @@
 
 // Checkbox 复选框
 .el-checkbox {
-  &__input.is-checked {
-    .el-checkbox__inner {
-      background-color: var(--color-primary-500);
-      border-color: var(--color-primary-500);
+  &__input {
+    &.is-checked {
+      .el-checkbox__inner {
+        background-color: var(--color-primary-500);
+        border-color: var(--color-primary-500);
+      }
+      & + .el-checkbox__label {
+        color: var(--color-text-primary);
+      }
     }
-    & + .el-checkbox__label {
-      color: var(--color-primary-500);
+
+    &.is-indeterminate {
+      .el-checkbox__inner {
+        background-color: var(--color-primary-500);
+        border-color: var(--color-primary-500);
+      }
+    }
+
+    &.is-focus {
+      .el-checkbox__inner {
+        border-color: var(--color-primary-500);
+        box-shadow: 0 0 0 2px var(--color-primary-outline);
+      }
+    }
+
+    &:hover {
+      .el-checkbox__inner {
+        border-color: var(--color-primary-400);
+      }
     }
   }
-  &:hover {
+
+  &__inner {
+    &:hover {
+      border-color: var(--color-primary-400);
+    }
+  }
+
+  // 禁用状态
+  &.is-disabled {
     .el-checkbox__inner {
-      border-color: var(--color-primary-hover);
+      background-color: var(--color-bg-disabled);
+      border-color: var(--color-info-200) !important;
+      &::after {
+        border-color: var(--color-info-400);
+      }
+    }
+    .el-checkbox__label {
+      color: var(--color-info-400);
     }
   }
 }
@@ -1832,5 +1889,35 @@
       line-height: calc((var(--height-lg) - 2px) / 2) !important;
     }
   }
+}
+
+// 日期选择器
+.el-date-editor {
+  &.el-input__inner {
+    height: var(--height-md);
+    line-height: var(--height-md);
+  }
+
+  .el-range-separator {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 0 var(--spacing-xxs);
+    margin: 0;
+    font-size: var(--font-size-base);
+    color: var(--color-text-secondary);
+    width: 24px;
+    line-height: 1;
+    vertical-align: middle;
+  }
+}
+
+// 日期范围选择器和选择器的激活状态
+.el-range-editor.is-active,
+.el-range-editor.is-active:hover,
+.el-select .el-input.is-focus .el-input__inner {
+  border-color: var(--color-primary-500);
+  box-shadow: 0 0 0 2px var(--color-primary-outline);
 }
  

@@ -23,6 +23,15 @@ export default {
   },
 };
 
+const Template = (args) => ({
+  template: `
+    <el-checkbox v-bind="args">{{ args.children }}</el-checkbox>
+  `,
+  data() {
+    return { args };
+  },
+});
+
 export const Default = () => ({
   template: `
     <el-checkbox-group v-model="checkList">
@@ -38,11 +47,17 @@ export const Default = () => ({
   }
 });
 
+export const SingleCheckbox = Template.bind({});
+SingleCheckbox.args = {
+  label: '选项1',
+  children: '单个复选框'
+};
+
 export const Disabled = Template.bind({});
 Disabled.args = {
   disabled: true,
   label: '选项1',
-  children: '禁用状态',
+  children: '禁用状态'
 };
 
 export const DisabledChecked = Template.bind({});
@@ -50,5 +65,5 @@ DisabledChecked.args = {
   disabled: true,
   checked: true,
   label: '选项1',
-  children: '禁用且选中',
+  children: '禁用且选中'
 }; 
