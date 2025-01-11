@@ -316,4 +316,68 @@ export const DifferentSizes = () => ({
       </div>
     </div>
   `
+});
+
+export const FixedColumns = () => ({
+  data() {
+    return {
+      tableData: Array.from({ length: 10 }, (_, index) => ({
+        date: `2016-05-${index + 1}`,
+        name: '王小虎',
+        province: '上海',
+        city: '普陀区',
+        address: '上海市普陀区金沙江路 1518 弄',
+        zip: 200333,
+        tag: '家'
+      }))
+    }
+  },
+  template: `
+    <div>
+      <h3 class="mb-2">固定列</h3>
+      <el-table
+        :data="tableData"
+        border
+        style="width: 100%"
+      >
+        <el-table-column
+          fixed
+          prop="date"
+          label="日期"
+          width="150"
+        />
+        <el-table-column
+          prop="name"
+          label="姓名"
+          width="120"
+        />
+        <el-table-column
+          prop="province"
+          label="省份"
+          width="120"
+        />
+        <el-table-column
+          prop="city"
+          label="市区"
+          width="120"
+        />
+        <el-table-column
+          prop="address"
+          label="地址"
+          width="300"
+        />
+        <el-table-column
+          prop="zip"
+          label="邮编"
+          width="120"
+        />
+    
+      </el-table>
+    </div>
+  `,
+  methods: {
+    handleClick(row) {
+      console.log(row);
+    }
+  }
 }); 
