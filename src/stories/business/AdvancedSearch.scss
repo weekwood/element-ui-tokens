@@ -43,6 +43,7 @@
       align-items: flex-start;
       gap: var(--spacing-xs);
       margin-left: auto;
+      justify-content: flex-end;
       order: 3; // 默认在第一行最后
     }
   }
