@@ -25,4 +25,16 @@ export const parameters = {
       component: 'Element UI components with design tokens system',
     },
   },
-}; 
+};
+
+// 添加预览样式
+export const decorators = [
+  (story) => ({
+    components: { story },
+    template: `
+      <div style="font-family: var(--font-family-base);">
+        <story />
+      </div>
+    `
+  })
+]; 

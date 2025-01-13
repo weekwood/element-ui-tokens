@@ -10,6 +10,8 @@ export default {
     shadow: {
       control: { type: 'select' },
       options: ['always', 'hover', 'never'],
+      description: 'When to show card shadows',
+      defaultValue: 'always',
     },
     bodyStyle: { control: 'object' },
   },
@@ -20,20 +22,36 @@ const Template = (args, { argTypes }) => ({
   template: `
     <el-card v-bind="$props">
       <div slot="header">
-        <span>卡片名称</span>
-        <el-button style="float: right;" type="text">操作按钮</el-button>
+        <span>Card Title</span>
+        <el-button style="float: right;" type="text">Operation</el-button>
       </div>
       <div v-for="o in 4" :key="o">
-        {{'列表内容 ' + o }}
+        {{'List item ' + o }}
       </div>
     </el-card>
   `,
 });
 
-export const Default = Template.bind({});
-Default.args = {};
+export const AlwaysShadow = Template.bind({});
+AlwaysShadow.args = {
+  shadow: 'always',
+};
 
-export const NoHeader = Template.bind({});
-NoHeader.args = {
+export const HoverShadow = Template.bind({});
+HoverShadow.args = {
   shadow: 'hover',
+};
+
+export const NeverShadow = Template.bind({});
+NeverShadow.args = {
+  shadow: 'never',
+};
+
+export const CustomStyle = Template.bind({});
+CustomStyle.args = {
+  shadow: 'hover',
+  bodyStyle: {
+    padding: '20px',
+    backgroundColor: 'var(--color-primary-50)',
+  },
 }; 

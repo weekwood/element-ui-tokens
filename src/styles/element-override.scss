@@ -1791,32 +1791,40 @@
 }
 
 .el-card {
-  border: none;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  transition: box-shadow 0.3s;
-
-  &:hover {
-    box-shadow: var(--shadow-md);
-  }
+  border: 1px solid var(--color-info-200);
+  border-radius: var(--radius-base);
+  box-shadow: none;
+  transition: all 0.3s;
+  color: var(--color-text-primary);
 
   &.is-always-shadow {
-    box-shadow: var(--shadow);
+    box-shadow: var(--shadow-base);
   }
 
   &.is-hover-shadow:hover {
     box-shadow: var(--shadow-md);
   }
 
+  &.is-never-shadow {
+    box-shadow: none;
+    border: 1px solid var(--color-info-200);
+  }
+
   .el-card__header {
-    padding: var(--spacing-4) var(--spacing-4);
+    padding: var(--spacing-md);
     border-bottom: 1px solid var(--color-info-200);
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-base);
     font-weight: 500;
+
+    .el-button--text {
+      height: auto;
+      line-height: inherit;
+      padding: 0 var(--spacing-xs);
+    }
   }
 
   .el-card__body {
-    padding: var(--spacing-4);
+    padding: var(--spacing-md);
   }
 }
 
