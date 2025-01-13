@@ -43,10 +43,10 @@
 }
 
 // 表格固定列
-.el-table__fixed,
-.el-table__fixed-right {
-  z-index: var(--z-index-sticky) !important;
-}
+// .el-table__fixed,
+// .el-table__fixed-right {
+//   z-index: var(--z-index-sticky) !important;
+// }
 
 // 使用我们的设计令牌覆盖 Element UI 默认样式
 .el-button {
@@ -580,12 +580,12 @@
     background-color: var(--color-info-50);
     color: var(--color-text-primary);
     font-weight: 600;
-    padding: var(--spacing-sm);
+    // padding: var(--spacing-sm);
     border-bottom: 1px solid var(--color-info-200);
   }
   
   td.el-table__cell {
-    padding: var(--spacing-sm);
+    // padding: var(--spacing-sm);
     border-bottom: 1px solid var(--color-info-200);
     transition: background 0.3s;
   }
@@ -594,27 +594,27 @@
   &.el-table--mini {
     th.el-table__cell,
     td.el-table__cell {
-      padding: var(--spacing-xs);
-      height: var(--height-xs);
-      line-height: var(--height-xs);
+      // padding: var(--spacing-xs);
+      // height: var(--height-xs);
+      // line-height: var(--height-xs);
     }
   }
 
   &.el-table--small {
     th.el-table__cell,
     td.el-table__cell {
-      padding: var(--spacing-sm);
-      height: var(--height-sm);
-      line-height: var(--height-sm);
+      // padding: var(--spacing-sm);
+      // height: var(--height-sm);
+      // line-height: var(--height-sm);
     }
   }
 
   &.el-table--medium {
     th.el-table__cell,
     td.el-table__cell {
-      padding: var(--spacing-md);
-      height: var(--height-md);
-      line-height: var(--height-md);
+      // padding: var(--spacing-md);
+      // height: var(--height-md);
+      // line-height: var(--height-md);
     }
   }
 

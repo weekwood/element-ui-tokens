@@ -381,3 +381,195 @@ export const FixedColumns = () => ({
     }
   }
 }); 
+
+export const FixedColumnWithSelection = () => ({
+  data() {
+    return {
+      isCtrl: false,
+      tableData: Array.from({ length: 10 }, (_, index) => ({
+        id: index + 1,
+        date: `2016-05-${String(index + 1).padStart(2, '0')}`,
+        name: '王小虎',
+        province: '上海',
+        city: '普陀区',
+        address: '上海市普陀区金沙江路 1518 弄',
+        zip: 200333 + index,
+        status: index % 3 === 0 ? '已审核' : '未审核',
+        canChecked: index % 3 !== 1
+      })),
+      selection: []
+    };
+  },
+  mounted() {
+    // 添加键盘事件监听
+    const isWin = (navigator.platform === 'Win32') || (navigator.platform === 'Windows');
+    const isMac = (navigator.platform === 'Mac68K') || (navigator.platform === 'MacPPC') || 
+                 (navigator.platform === 'Macintosh') || (navigator.platform === 'MacIntel');
+    
+    document.addEventListener('keydown', e => {
+      if ((e.keyCode === 17 && isWin) || (e.keyCode === 91 && isMac)) {
+        this.isCtrl = true;
+      }
+    });
+    
+    document.addEventListener('keyup', e => {
+      if ((e.keyCode === 17 && isWin) || (e.keyCode === 91 && isMac)) {
+        this.isCtrl = false;
+      }
+    });
+  },
+  destroyed() {
+    document.removeEventListener('keydown', () => {
+      this.isCtrl = false;
+    });
+    document.removeEventListener('keyup', () => {
+      this.isCtrl = false;
+    });
+  },
+  template: `
+    <div>
+      <h3 class="mb-2">固定列和选择功能表格</h3>
+      <p class="mb-4 text-gray-600">
+        1. 左侧固定了选择列、序号列和日期列<br>
+        2. 右侧固定了状态列和操作列<br>
+        3. 按住 Ctrl/Command 键可以多选<br>
+        4. 部分行禁用选择功能
+      </p>
+      <el-table
+        ref="table"
+        :data="tableData"
+        style="width: 100%"
+        border
+        height="400"
+        @selection-change="handleSelectionChange"
+        @row-click="handleRowClick"
+        @select="handleSelect"
+        @select-all="handleSelectAll"
+      >
+        <el-table-column
+          type="selection"
+          width="45"
+          fixed="left"
+          :selectable="checkSelectable"
+          :reserve-selection="true"
+          align="center"
+        />
+        <el-table-column
+          type="index"
+          label="序号"
+          width="60"
+          fixed="left"
+          align="center"
+        />
+        <el-table-column
+          prop="date"
+          label="日期"
+          width="120"
+          fixed="left"
+        />
+        <el-table-column
+          prop="name"
+          label="姓名"
+          width="120"
+        />
+        <el-table-column
+          prop="province"
+          label="省份"
+          width="120"
+        />
+        <el-table-column
+          prop="city"
+          label="城市"
+          width="120"
+        />
+        <el-table-column
+          prop="address"
+          label="地址"
+          width="300"
+        />
+        <el-table-column
+          prop="zip"
+          label="邮编"
+          width="120"
+        />
+        <el-table-column
+          prop="status"
+          label="状态"
+          width="100"
+          fixed="right"
+        >
+          <template slot-scope="scope">
+            <el-tag :type="scope.row.status === '已审核' ? 'success' : 'warning'" size="small">
+              {{ scope.row.status }}
+            </el-tag>
+          </template>
+        </el-table-column>
+        <el-table-column
+          label="操作"
+          width="120"
+          fixed="right"
+          align="center"
+        >
+          <template slot-scope="scope">
+            <el-button 
+              type="text" 
+              size="small" 
+              :disabled="!scope.row.canChecked"
+              @click.stop="handleAction(scope.row)"
+            >
+              查看
+            </el-button>
+            <el-button 
+              type="text" 
+              size="small" 
+              :disabled="!scope.row.canChecked"
+              @click.stop="handleAction(scope.row)"
+            >
+              编辑
+            </el-button>
+          </template>
+        </el-table-column>
+      </el-table>
+      
+      <div class="mt-4">
+        <p>当前选中项:</p>
+        <pre>{{ selection }}</pre>
+      </div>
+    </div>
+  `,
+  methods: {
+    checkSelectable(row) {
+      return row.canChecked;
+    },
+    handleSelectionChange(val) {
+      this.selection = val;
+    },
+    handleSelect(selection, row) {
+      if (this.checked) {
+        if (this.isCtrl) {
+          const isSelected = selection.includes(row);
+          this.$refs.table.toggleRowSelection(row, isSelected);
+        }
+      }
+      this.selection = selection;
+    },
+    handleSelectAll(selection) {
+      this.selection = selection;
+    },
+    handleRowClick(row, column) {
+      if (column.type === 'selection' || !row.canChecked) {
+        return;
+      }
+      
+      if (this.isCtrl) {
+        this.$refs.table.toggleRowSelection(row);
+      } else {
+        this.$refs.table.clearSelection();
+        this.$refs.table.toggleRowSelection(row, true);
+      }
+    },
+    handleAction(row) {
+      console.log('Action clicked:', row);
+    }
+  }
+}); 
