@@ -1,0 +1,48 @@
+// Override Element Plus Anchor styles
+.el-anchor {
+  // Add custom scrollbar styles
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--el-border-color-lighter);
+    border-radius: 3px;
+  }
+
+  .el-anchor-link {
+    // Enhance link styles
+    &__title {
+      position: relative;
+      transition: all 0.3s;
+      
+      &:hover {
+        color: var(--el-color-primary);
+      }
+    }
+
+    &.is-active {
+      .el-anchor-link__title {
+        color: var(--el-color-primary);
+        font-weight: 600;
+      }
+    }
+  }
+
+  // Custom marker line
+  .el-anchor__marker {
+    transition: top 0.25s ease-in-out;
+  }
+
+  // Nested links indentation
+  .el-anchor-link .el-anchor-link {
+    padding-left: 16px;
+  }
+}
+
+// Custom theme styles
+.el-anchor--primary {
+  .el-anchor__marker {
+    background-color: var(--el-color-primary);
+  }
+} 
