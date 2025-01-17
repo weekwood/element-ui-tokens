@@ -695,6 +695,49 @@
       border-right: 1px solid var(--color-info-200);
     }
   }
+
+  th.is-sortable {
+    .cell {
+      position: relative;
+      padding-right: var(--spacing-6);
+    }
+    
+    .caret-wrapper {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: var(--spacing-4);
+      height: var(--spacing-4);
+      line-height: var(--spacing-4);
+      margin-left: var(--spacing-2);
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      color: var(--color-info-400);
+      
+      .sort-caret {
+        border-width: 4px;
+        
+        &.ascending {
+          top: -2px;
+          border-bottom-color: currentColor;
+        }
+        
+        &.descending {
+          bottom: -2px;
+          border-top-color: currentColor;
+        }
+      }
+    }
+
+    &.ascending .sort-caret.ascending {
+      color: var(--color-primary-500);
+    }
+
+    &.descending .sort-caret.descending {
+      color: var(--color-primary-500);
+    }
+  }
 }
 
 // Pagination 分页
