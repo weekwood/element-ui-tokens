@@ -550,9 +550,17 @@
     }
   }
 
-  &__nav-wrap::after {
-    height: 1px;
-    background-color: #f0f0f0;
+  &__nav-wrap {
+    &::after {
+      height: 1px;  // 底部线条高度
+    }
+  }
+
+  &__nav-next,
+  &__nav-prev {
+    height: var(--height-md);  // 设置箭头按钮高度与 tab 项一致
+    line-height: var(--height-md);
+    font-size: var(--font-size-base);
   }
 
   &__active-bar {
@@ -1014,6 +1022,21 @@
     .el-submenu .el-menu-item {
       height: var(--height-md);
       line-height: var(--height-md);
+    }
+  }
+
+  // 垂直菜单特殊处理
+  &:not(.el-menu--horizontal) {
+    .el-submenu__title {
+      .el-icon-arrow-down:before {
+        transform: rotate(270deg);
+        display: inline-block;
+        transition: transform 0.3s;
+      }
+    }
+
+    .el-submenu.is-opened > .el-submenu__title .el-icon-arrow-down:before {
+      transform: rotate(180deg);
     }
   }
 }
@@ -1971,4 +1994,3 @@
   border-color: var(--color-primary-500);
   box-shadow: 0 0 0 2px var(--color-primary-outline);
 }
- 

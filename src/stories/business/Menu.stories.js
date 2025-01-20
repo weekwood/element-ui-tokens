@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import ElementUI from 'element-ui';
-import './Menu.scss';
 
 Vue.use(ElementUI);
 
