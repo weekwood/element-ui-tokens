@@ -1,6 +1,6 @@
 .advanced-search {
   // 默认变量
-  --form-item-width: 280px;
+  --form-item-min-width: 280px;
   --form-label-width: 80px;
   --form-spacing: var(--spacing-md);
 
@@ -17,9 +17,11 @@
     width: 100%;
 
     .el-form-item {
+      display: inline-flex;
       margin: 0;
-      width: var(--form-item-width);
-      min-width: 0;
+      min-width: var(--form-item-min-width);
+      flex: 1; // 允许伸展
+      max-width: calc(33.33% - var(--form-spacing)); // 最大宽度为三分之一减去间距
 
       &__label {
         width: var(--form-label-width);
@@ -38,24 +40,19 @@
 
     // 按钮组特殊处理
     .advanced-search__actions {
-      width: var(--form-item-width);
       display: flex;
       align-items: flex-start;
       gap: var(--spacing-xs);
       margin-left: auto;
-      justify-content: flex-end;
-      order: 3; // 默认在第一行最后
+      flex: 0 0 auto; // 按钮组不参与伸缩
+      white-space: nowrap; // 防止按钮换行
     }
   }
 
-  // 默认收起状态
+  // 默认收起状态（大屏）
   &:not(.is-expanded) {
     .el-form-item:nth-child(n + 4) {
       display: none;
-    }
-
-    .advanced-search__actions {
-      display: flex; // 始终显示
     }
   }
 
@@ -67,27 +64,36 @@
       }
     }
 
-    .advanced-search__actions {
-      order: 2; // 中屏时在第二个位置
+    .el-form-item {
+      max-width: calc(50% - var(--form-spacing)) !important; // 最大宽度改为二分之一
     }
   }
 
-  @media (max-width: 768px) {
+  // 中等屏幕 - 一个输入框加按钮组
+  @media (max-width: 840px) {
+    &:not(.is-expanded) {
+      .el-form-item:nth-child(n + 2) {
+        display: none;
+      }
+    }
+
+    .el-form-item {
+      max-width: calc(100% - var(--form-spacing)) !important;
+    }
+  }
+
+  // 小屏幕 - 按钮组左对齐
+  @media (max-width: 576px) {
     &__items {
       .el-form-item {
-        width: 100%;
+        min-width: 100%;
+        flex: 0 0 100%;
       }
 
       .advanced-search__actions {
         width: 100%;
         margin-left: var(--form-label-width);
-        order: 1; // 小屏时在第一个位置
-      }
-    }
-
-    &:not(.is-expanded) {
-      .el-form-item:nth-child(n + 2) {
-        display: none;
+        justify-content: flex-start;
       }
     }
   }

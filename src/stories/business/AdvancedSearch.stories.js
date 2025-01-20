@@ -24,10 +24,6 @@ const Template = () => ({
       :inline="true"
       class="advanced-search"
       :class="{ 'is-expanded': isExpanded }"
-      :style="{
-        '--form-item-width': itemWidth,
-        '--form-label-width': labelWidth
-      }"
     >
       <div class="advanced-search__content">
         <div class="advanced-search__items">
@@ -60,7 +56,11 @@ const Template = () => ({
           <div class="advanced-search__actions">
             <el-button type="primary" @click="handleSearch">查询</el-button>
             <el-button @click="handleReset">重置</el-button>
-            <el-button type="text" @click="toggleExpand">
+            <el-button 
+              v-if="showExpandButton"
+              type="text" 
+              @click="toggleExpand"
+            >
               {{ isExpanded ? '收起' : '展开' }}
               <i :class="['el-icon-arrow-' + (isExpanded ? 'up' : 'down')]" />
             </el-button>
@@ -73,6 +73,7 @@ const Template = () => ({
     return {
       form: {},
       isExpanded: false,
+      containerWidth: 0,
       itemWidth: '280px',
       labelWidth: '80px',
       formItems: [
@@ -94,7 +95,40 @@ const Template = () => ({
       ]
     };
   },
+  computed: {
+    showExpandButton() {
+      const totalItems = this.formItems.length;
+      
+      // 大屏(>1200px)：超过3个才显示
+      if (this.containerWidth > 1200) {
+        return totalItems > 3;
+      }
+      // 中屏(840px-1200px)：超过2个才显示
+      if (this.containerWidth > 840) {
+        return totalItems > 2;
+      }
+      // 小屏(<840px)：超过1个才显示
+      return totalItems > 1;
+    }
+  },
+  mounted() {
+    this.updateContainerWidth();
+    // 使用 ResizeObserver 监听容器大小变化
+    this.resizeObserver = new ResizeObserver(this.updateContainerWidth);
+    this.resizeObserver.observe(this.$refs.form.$el);
+  },
+  beforeDestroy() {
+    // 移除 ResizeObserver
+    if (this.resizeObserver) {
+      this.resizeObserver.disconnect();
+    }
+  },
   methods: {
+    updateContainerWidth() {
+      if (this.$refs.form) {
+        this.containerWidth = this.$refs.form.$el.getBoundingClientRect().width;
+      }
+    },
     handleSearch() {
       console.log('查询', this.form);
     },
