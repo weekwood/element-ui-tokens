@@ -20,8 +20,7 @@
       display: inline-flex;
       margin: 0;
       min-width: var(--form-item-min-width);
-      flex: 1; // 允许伸展
-      max-width: calc(33.33% - var(--form-spacing)); // 最大宽度为三分之一减去间距
+      flex: 0 0 calc(25% - var(--form-spacing) * 3 / 4); // 固定宽度为四分之一
 
       &__label {
         width: var(--form-label-width);
@@ -44,8 +43,8 @@
       align-items: flex-start;
       gap: var(--spacing-xs);
       margin-left: auto;
-      flex: 0 0 auto; // 按钮组不参与伸缩
-      white-space: nowrap; // 防止按钮换行
+      flex: 0 0 auto;
+      white-space: nowrap;
     }
   }
 
@@ -58,31 +57,29 @@
 
   // 响应式布局
   @media (max-width: 1200px) {
+    .el-form-item {
+      flex: 0 0 calc(33.33% - var(--form-spacing) * 2 / 3) !important; // 固定为三分之一
+    }
+
     &:not(.is-expanded) {
       .el-form-item:nth-child(n + 3) {
         display: none;
       }
     }
-
-    .el-form-item {
-      max-width: calc(50% - var(--form-spacing)) !important; // 最大宽度改为二分之一
-    }
   }
 
-  // 中等屏幕 - 一个输入框加按钮组
   @media (max-width: 840px) {
+    .el-form-item {
+      flex: 0 0 calc(50% - var(--form-spacing) / 2) !important; // 固定为二分之一
+    }
+
     &:not(.is-expanded) {
       .el-form-item:nth-child(n + 2) {
         display: none;
       }
     }
-
-    .el-form-item {
-      max-width: calc(100% - var(--form-spacing)) !important;
-    }
   }
 
-  // 小屏幕 - 按钮组左对齐
   @media (max-width: 576px) {
     &__items {
       .el-form-item {
