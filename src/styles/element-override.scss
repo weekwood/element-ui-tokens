@@ -956,6 +956,7 @@
     
     td {
       &.current:not(.disabled) span {
+        color: #fff;  // 选中日期的文字颜色为白色
         background-color: var(--color-primary-500);
         border-radius: var(--radius-sm);
       }
@@ -967,6 +968,13 @@
       
       &:hover span {
         background-color: var(--color-primary-bg-hover);
+        color: var(--color-primary-500);
+        border-radius: var(--radius-sm);  // 添加与选中状态一致的圆角
+      }
+
+      &.current:not(.disabled):hover span {
+        background-color: var(--color-primary-400);  // hover时使用浅色主题色
+        color: #fff;  // hover时保持文字为白色
       }
     }
   }
@@ -1465,9 +1473,9 @@
 
 // Cascader 级联选择器
 .el-cascader {
-  &:hover {
+  &:not(.is-disabled):hover {
     .el-input__inner {
-      border-color: var(--color-primary-hover);
+      border-color: var(--color-primary-500);
     }
   }
 
